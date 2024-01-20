@@ -99,7 +99,14 @@ def upsert_sample_data():
         "./data/Overview.json",
         "./data/CpfContributionEmployee.json",
         "./data/CpfContributionSelfEmployed.json",
-        "./data/ImportantInfo.json"
+        "./data/ImportantInfo.json",
+        # "./data/GovernmentSupport.json",
+        "./data/HomeOwnership.json",
+        "./data/investmentandInterest.json",
+        "./data/MonthlyPayout.json",
+        "./data/MoreWaysToSave.json",
+        "./data/RetirementWithdrawal.json",
+        "./data/SliverSupportScheme.json"
     ]
 
     for i in range(len(file_paths)):
