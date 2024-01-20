@@ -10,11 +10,11 @@ export const getIndexVectors = async (indexName: string) => {
     return res.data;
 }
 
-// TODO: replace with proper route
 export const postVector = async (id: string, data: string, indexName: string) => {
-    const res = await api.post(`/index/${indexName}/`, {
+    const res = await api.post(`/index/`, {
+        index: indexName,
         id: id,
-        data: data,
+        data: data
     });
     return res.data;
 }

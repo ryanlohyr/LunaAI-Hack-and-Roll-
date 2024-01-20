@@ -5,14 +5,14 @@ import DashboardCard from './DashboardCard'
 import { Textarea } from '@/components/ui/textarea';
 import { EditCancelButton } from '@/components/ui/edit-cancel-button';
 import { Input } from '@/components/ui/input';
-import { Metadata } from '@/features/tuning/types/tuning.type';
+import { Vector } from '@/features/tuning/types/tuning.type';
 import { postImptInfo, postPresetPrompt } from '@/service/dashboard';
 
 type Props = {
     presetPrompt: string;
     logsSummary: string;
     pendingActions: number;
-    imptInfo: Metadata[];
+    imptInfo: Vector[];
 }
 
 const Dashboard = (props: Props) => {
@@ -53,12 +53,18 @@ const Dashboard = (props: Props) => {
         )
     }
 
-    const handleEditImpt = (index: number, newContent: string) => {
+    const handleEditImpt = (index: string, newContent: string) => {
         setImptInfoData((prevData) => {
-            return prevData.map((item, i) => {
-              if (i === index) {
+            return prevData.map((item) => {
+              if (item.id === index) {
                 // Modify the 'name' field in the object at the specified index
-                return { ...item, content: newContent };
+                return { 
+                    ...item, 
+                    metadata: {
+                        ...item.metadata,
+                        content: newContent,
+                    },
+                };
               } else {
                 return item;
               }
@@ -93,10 +99,10 @@ const Dashboard = (props: Props) => {
                     <div className='flex flex-col space-y-2'>
                         <h1 className='font-bold text-lg'>Important Information</h1>
                         <div className='flex flex-col space-y-2'>
-                            {imptInfoData.map((o, i) => (
-                                <div className='flex flex-row justify-between' key={o.header}>
-                                    <h1 className='font-bold text-md'>{o.header}</h1>
-                                    <Input value={o.content} onChange={(e) => handleEditImpt(i, e.target.value)} className='max-w-[200px]' disabled={!isEditImpt}/>
+                            {imptInfoData.map((o) => (
+                                <div className='flex flex-row justify-between' key={o.metadata.header}>
+                                    <h1 className='font-bold text-md'>{o.metadata.header}</h1>
+                                    <Input value={o.metadata.content} onChange={(e) => handleEditImpt(o.id, e.target.value)} className='max-w-[200px]' disabled={!isEditImpt}/>
                                 </div>
                             ))}
                             <EditCancelButton handleSubmit={() => hanldeSubmitImpt()} isEdit={isEditImpt} toggleEdit={() => setIsEditImpt(prev => !prev)}/>

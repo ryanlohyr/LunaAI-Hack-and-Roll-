@@ -8,6 +8,7 @@ load_dotenv()
 
 openai.api_key = environ.get("OPENAI_API_KEY")
 
+
 def generateSummary(context, response):
     prompt = f"""
       Here is a sample call logs by a customer service agent. 
@@ -21,17 +22,12 @@ def generateSummary(context, response):
 
     call_logs_summary = openai.ChatCompletion.create(
         model=GPT_4,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
+        messages=[{"role": "user", "content": prompt}],
         temperature=1,
         max_tokens=2000,
         top_p=1,
         frequency_penalty=0,
-        presence_penalty=0
+        presence_penalty=0,
     )
     text = call_logs_summary.choices[0].message.content
     print(text)
@@ -39,4 +35,4 @@ def generateSummary(context, response):
     try:
         return json.loads(text)
     except:
-        return json.loads({"data":"error, please try again"})
+        return json.loads({"data": "error, please try again"})

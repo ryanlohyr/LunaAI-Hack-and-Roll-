@@ -19,7 +19,7 @@ from classes.exception_types import PromptTooLong
 # from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
-from classes.app_types import CreateIndex, UpdateModel, Upsert, Query
+from classes.app_types import CreateIndex, UpdateModel, Upsert, Query, UpsertImptInfo
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
@@ -196,17 +196,25 @@ def post_preset_prompt(prompt):
     upsert_vectors(input, PRESET_PROMPT)
 
 
-## IMPORTANT INFO GET POST
-# returns array of {header, content}
-@app.get("/impt-info")
-def get_impt_info():
-    return
-
-
+## IMPORTANT INFO POST
 # update impt info, receives array of {header, content}
 @app.post("/impt-info")
-def post_impt_info():
-    return
+def post_impt_info(data:UpsertImptInfo):
+    # append content field
+    new_data = []
+    for item in list(data.data):
+        updated_item = {
+            "id": item["id"],
+            "metadata": {
+                "header": item["metadata"]["header"],
+                "content": item["metadata"]["content"]
+            },
+            "content": item["metadata"]["content"]
+        }
+
+        new_data.append(updated_item)
+    # print(new_data)
+    upsert_vectors(new_data, "important-info")
 
 
 ## PENDING ACTION GET
