@@ -1,3 +1,4 @@
+import IndexList from '@/features/tuning/components/IndexList'
 import React from 'react'
 
 type Props = {}
@@ -8,6 +9,7 @@ const page = (props: Props) => {
         <div className='flex flex-col space-y-4'>
             <h1 className="font-bold text-4xl">Knowledge Base</h1>
             <p className="text-gray-400">To change outdated data in the database stored as embeddings</p>
+            <IndexList/>
         </div>
     </div>
   )

@@ -1,11 +1,14 @@
+import Logs from '@/features/logs/components/Logs'
+import { data } from '@/features/logs/types/data'
 import React from 'react'
 
 type Props = {}
 
 const page = (props: Props) => {
+    const logs = data
   return (
     <div>
-        <h1>Chat Logs</h1>
+        <Logs logs={logs}/>
     </div>
   )
 }

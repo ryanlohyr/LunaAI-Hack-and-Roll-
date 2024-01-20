@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/features/navbar";
+import { LogContextProvider } from "@/lib/context/LogContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <LogContextProvider>
       <body className={inter.className}>
         <Navbar/>
         {children}
-        </body>
+      </body>
+      </LogContextProvider>
     </html>
   );
 }
