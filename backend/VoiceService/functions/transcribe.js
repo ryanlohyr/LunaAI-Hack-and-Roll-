@@ -1,4 +1,4 @@
-exports.handler = function(context, event, callback) {
+exports.handler = function (context, event, callback) {
     // Create a TwiML Voice Response object to build the response
     const twiml = new Twilio.twiml.VoiceResponse();
 
@@ -6,10 +6,22 @@ exports.handler = function(context, event, callback) {
     if (!event.request.cookies.convo) {
         // Greet the user with a message using AWS Polly Neural voice
         twiml.say({
-                voice: 'Polly.Joanna-Neural',
-            },
-            "Hey! I'm Luna, the official hackand roll chatbot. I can help you with any questions you have about the CPF. What would you like to know?"
+            voice: 'Polly.Joanna-Neural',
+        },
+            "Hey! I'm Luna, the official hack and roll chatbot. I can help you with any questions you have about the CPF. Press one for English, or two for Chinese."
         );
+        // Greet the user with a message using AWS Polly Neural voice
+        twiml.say({
+            voice: 'Polly.Zhiyu-Neural',
+        },
+            "你好！我是Luna，官方的Hack and Roll聊天机器人。如果您对CPF有任何疑问，我可以帮助您。按1为英语，或按2为中文。"
+        );
+
+        twiml.gather({
+            input: 'dtmf', // Specify dtmf as the input type
+            numDigits: 1, // Gather 1 digit
+            action: '/processInput', // Send the collected input to /processInput 
+        });  
     }
 
     // Listen to the user's speech and pass the input to the /respond Function
@@ -29,10 +41,10 @@ exports.handler = function(context, event, callback) {
     // Set the response body to the generated TwiML
     response.setBody(twiml.toString());
 
-    // If no conversation cookie is present, set an empty conversation cookie
-    if (!event.request.cookies.convo) {
-        response.setCookie('convo', '', ['Path=/']); 
-    }
+    // // If no conversation cookie is present, set an empty conversation cookie
+    // if (!event.request.cookies.convo) {
+    //     response.setCookie('convo', '', ['Path=/']);
+    // }
 
     // Return the response to Twilio
     return callback(null, response);
