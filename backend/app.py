@@ -15,7 +15,7 @@ from classes.app_types import CreateIndex, Upsert, Query
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
-from configs.tables import INDEXES, OVERVIEW_TABLE, CPF_CONTRIBUTION_EMPLOYEE, CPF_CONTRIBUTION_SELFEMPLOYED
+from configs.tables import INDEXES, INDEXES_TO_CREATE
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
@@ -43,7 +43,7 @@ def create_index(index: CreateIndex):
 def create_index():
     index_list = [x["name"] for x in pc.list_indexes()]
     # print(index_list)
-    for i in INDEXES:
+    for i in INDEXES_TO_CREATE:
         if i not in index_list:
             # print(i)
             pc.create_index(
