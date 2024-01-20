@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from vector_database.retrieve import get_context
 # from vector_database.get_output import get_model_output
@@ -24,6 +25,15 @@ load_dotenv()
 app = FastAPI()
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = get_default_index()
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():

@@ -23,12 +23,12 @@ export const getPendingActions = async () => {
 
 // TODO: replace with official routes
 export const postPresetPrompt = async (prompt: string) => {
-    const res = await api.post("/preset")
+    const res = await api.post("/preset", {prompt: prompt})
     return res.data
 }
 
 export const postImptInfo = async (data: Metadata[]) => {
-    const res = await api.post("/preset")
+    const res = await api.post("/impt-info", {data: data})
     return res.data
 }
 
