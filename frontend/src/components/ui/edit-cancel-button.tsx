@@ -28,7 +28,7 @@ export const EditCancelButton = ({
         >
           Cancel
         </Button>
-        <Button onClick={() => handleSubmit} className="text-xs w-fit" size="sm">
+        <Button onClick={() => handleSubmit()} className="text-xs w-fit bg-lunaPrimary hover:bg-lunaPrimary/60" size="sm">
             Submit
         </Button>
       </div>

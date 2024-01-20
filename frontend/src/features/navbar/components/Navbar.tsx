@@ -39,7 +39,7 @@ export function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start space-x-12 px-8">
                 <div className="flex shrink-0 items-center justify-center">
                   <Link href="/">
-                    <h1 className="text-3xl font-bold">LunaAI</h1>
+                    <h1 className="text-3xl font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300%">LunaAI</h1>
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-12">
