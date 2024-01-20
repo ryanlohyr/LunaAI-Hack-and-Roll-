@@ -14,3 +14,9 @@ class Upsert(BaseModel):
 
 class Query(BaseModel):
     question: str
+
+
+class UpdateModel(BaseModel):
+    index_name: str
+    id: str
+    data: str
