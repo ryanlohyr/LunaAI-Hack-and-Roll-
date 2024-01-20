@@ -113,7 +113,7 @@ def upsert_sample_data():
         "./data/MonthlyPayout.json",
         "./data/MoreWaysToSave.json",
         "./data/RetirementWithdrawal.json",
-        "./data/SliverSupportScheme.json"
+        "./data/SliverSupportScheme.json",
     ]
 
     for i in range(len(file_paths)):
@@ -282,7 +282,6 @@ def post_preset_prompt(prompt: PresetPrompt):
 ## IMPORTANT INFO POST
 # update impt info, receives array of {header, content}
 @app.post("/impt-info")
-def post_impt_info(data: UpsertImptInfo):
 def post_impt_info(data: UpsertImptInfo):
     # append content field
     new_data = []
