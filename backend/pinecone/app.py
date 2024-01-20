@@ -143,22 +143,22 @@ def update_vector(data: UpdateModel):
 
     return
 
+
 @app.post("/post-call-logs")
-def post_call_logs(call_logs): # ask ryan send id, content (string of all the chat messages), metadata
+def post_call_logs(
+    call_logs,
+):  # ask ryan send id, content (string of all the chat messages), metadata
     upsert_vectors(call_logs, CALL_LOGS)
-
-
-# CALL LOGS GET
-@app.get("/call-logs")
-def get_call_logs():
-    return
 
 
 ## LOGS SUMMARY GET
 # get logs summary,return string
 @app.get("/logs-summary")
 def get_logs_summary():
-    # call openai api on all logs
+    res = get_ids_from_query(CALL_LOGS)["matches"]
+    if not res:
+        raise Exception("Logs not found")
+    parsed = [d.content for d in res]
 
     return
 
