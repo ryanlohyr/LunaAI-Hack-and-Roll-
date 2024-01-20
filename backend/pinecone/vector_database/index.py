@@ -20,7 +20,9 @@ def get_specific_index(index_name):
     return index
 
 def get_all_indexes():
-    return pc.list_indexes()
+    indexes = [pc.Index(x) for x in INDEXES]
+
+    return indexes
 
 def get_indexes_name():
     indexes = [x for x in INDEXES]
