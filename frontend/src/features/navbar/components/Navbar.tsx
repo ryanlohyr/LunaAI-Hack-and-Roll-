@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const navigation = [
   { name: "Overview", href: "/" },
@@ -37,8 +38,15 @@ export function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start space-x-12 px-8">
-                <div className="flex shrink-0 items-center justify-center">
+                <div className="flex shrink-0 items-center justify-center flex-row space-x-2">
+                <Image
+                      alt="moon"
+                      src="moon.svg"
+                      width={40}
+                      height={40}
+                    />
                   <Link href="/">
+                    
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300%">LunaAI</h1>
                   </Link>
                 </div>
