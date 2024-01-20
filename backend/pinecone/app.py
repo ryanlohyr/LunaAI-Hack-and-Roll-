@@ -9,13 +9,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from vector_database.retrieve import get_context
 
 # from vector_database.get_output import get_model_output
-from vector_database.index import get_ids_from_query, get_indexes_name
+from vector_database.index import (
+    get_ids_from_query,
+    get_indexes_name,
+    get_specific_index,
+)
 from classes.exception_types import PromptTooLong
 
 # from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
-from classes.app_types import CreateIndex, Upsert, Query
+from classes.app_types import CreateIndex, UpdateModel, Upsert, Query
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
@@ -36,6 +40,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/")
 def read_root():
@@ -122,10 +127,20 @@ def get_index(index_name):
 
 
 # post vectors given id and data
-@app.post("/index/{index_name}")
-def post_vector(index_name: str, data: Upsert):
-    print(index_name)
-    print(data)
+@app.post("/index")
+def update_vector(data: UpdateModel):
+    index = get_specific_index(data.index_name)
+    if not index:
+        raise Exception("Index not found")
+    old_data = index.fetch(ids=[data.id])
+    if not old_data or old_data.length == 0:
+        raise Exception("Data not found")
+    old_data = old_data[0]
+    old_data.content = data.data
+    old_data.metadata.content = data.data
+
+    index.upsert(vectors=[old_data])
+
     return
 
 @app.post("/post-call-logs")
