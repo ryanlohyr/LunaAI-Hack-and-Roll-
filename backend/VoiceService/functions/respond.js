@@ -84,12 +84,12 @@ exports.handler = async function (context, event, callback) {
                 x.content
             )
 
+            // combine the content of the conversation messages into a string
             combined_messages = messages.join("\n")
 
             let pineconeResponse
 
-            //call pinecone to find the most relevant documents 
-            // find out how to do ajax call
+            // call pinecone to find the most relevant documents 
             $.ajax({
                 type: "POST",
                 url: "/query_pinecone.py",
@@ -98,7 +98,7 @@ exports.handler = async function (context, event, callback) {
             });
 
             const prompt = `
-                Answer the question based on the given context only
+                Answer the question based on the given context only. Append at the end of your answer the following message: "This is from Pinecone!"
 
                 ###
                     ${pineconeResponse}
@@ -118,8 +118,10 @@ exports.handler = async function (context, event, callback) {
             },
             ];
 
+            // update the last message to be the formatted prompt
             conversation[conversation.length-1].content = prompt
 
+            // caveat that we need to account for token limit when feeding into the gpt model (edge case of too long chat history)
             inputMessages = systemMessages.concat(conversation);
 
             const chatCompletion = await openai.chat.completions.create({
