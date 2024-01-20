@@ -5,10 +5,11 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from src.gpt import generateSummary
+
 
 from vector_database.retrieve import get_context
 
-# from vector_database.get_output import get_model_output
 from vector_database.index import (
     get_ids_from_query,
     get_indexes_name,
@@ -161,17 +162,20 @@ def update_vector(data: UpdateModel):
 
 
 @app.post("/post-call-logs")
-def post_call_logs(call_logs): # ask ryan send id, content (string of all the chat messages), metadata
+def post_call_logs(
+    call_logs,
+):  # ask ryan send id, content (string of all the chat messages), metadata
+    print(call_logs)
     input = []
 
     for log in call_logs:
-        input.append({
-            "id": f"{log.id}",
-            "content": log.content,
-            "metadata": {
-                "content": log.content
+        input.append(
+            {
+                "id": f"{log.id}",
+                "content": log.content,
+                "metadata": {"content": log.content},
             }
-        })
+        )
 
     upsert_vectors(input, CALL_LOGS)
 
@@ -186,9 +190,9 @@ def get_logs_summary():
     res = get_ids_from_query(CALL_LOGS)["matches"]
     if not res:
         raise Exception("Logs not found")
-    parsed = [d.content for d in res]
+    parsed = [d["content"] for d in res]
 
-    return
+    return generateSummary(parsed, "")
 
 
 ## PRESET PROMPT GET POST
@@ -201,13 +205,7 @@ def get_preset_prompt():
 # update preset prompt
 @app.post("/preset-prompt")
 def post_preset_prompt(prompt):
-    input = {
-        "id": "1",
-        "content": prompt,
-        "metadata": {
-            "content": prompt
-        }
-    }
+    input = {"id": "1", "content": prompt, "metadata": {"content": prompt}}
 
     upsert_vectors(input, PRESET_PROMPT)
 
@@ -215,7 +213,7 @@ def post_preset_prompt(prompt):
 ## IMPORTANT INFO POST
 # update impt info, receives array of {header, content}
 @app.post("/impt-info")
-def post_impt_info(data:UpsertImptInfo):
+def post_impt_info(data: UpsertImptInfo):
     # append content field
     new_data = []
     for item in list(data.data):
@@ -223,9 +221,9 @@ def post_impt_info(data:UpsertImptInfo):
             "id": item["id"],
             "metadata": {
                 "header": item["metadata"]["header"],
-                "content": item["metadata"]["content"]
+                "content": item["metadata"]["content"],
             },
-            "content": item["metadata"]["content"]
+            "content": item["metadata"]["content"],
         }
 
         new_data.append(updated_item)
