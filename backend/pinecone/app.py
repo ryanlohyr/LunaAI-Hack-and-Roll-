@@ -99,6 +99,7 @@ def upsert_sample_data():
         "./data/Overview.json",
         "./data/CpfContributionEmployee.json",
         "./data/CpfContributionSelfEmployed.json",
+        "./data/ImportantInfo.json"
     ]
 
     for i in range(len(file_paths)):
@@ -107,7 +108,7 @@ def upsert_sample_data():
 
 
 @app.post("/query-data")
-def query(query: Query, id: str, conversation: [{"user": str, "content": str}]):
+def query(query: Query):
     input = []
 
     for log in conversation:
