@@ -18,7 +18,7 @@ from vector_database.index import (
 from classes.exception_types import PromptTooLong
 
 # from utils.calculations import count_tokens
-from vector_database.db import upsert_vectors
+from vector_database.db import upsert_vectors, get_embeddings
 from pinecone import Pinecone, PodSpec
 from classes.app_types import CreateIndex, UpdateModel, Upsert, Query, UpsertImptInfo
 import uvicorn
@@ -149,16 +149,23 @@ def update_vector(data: UpdateModel):
     index = get_specific_index(data.index_name)
     if not index:
         raise Exception("Index not found")
-    old_data = index.fetch(ids=[data.id])
-    if not old_data or old_data.length == 0:
-        raise Exception("Data not found")
-    old_data = old_data[0]
-    old_data.content = data.data
-    old_data.metadata.content = data.data
+    vector = [{
+        "id": data.id,
+        "content": data.data,
+        "metadata": {
+            "header": data.header,
+            "content": data.data
+        }
+    }]
+    embedded = get_embeddings(vector)
+    update_response = index.update(
+        id=data.id,
+        values=embedded[0][1],
+        set_metadata={'header': data.header, 'content': data.data},
+        namespace=""
+    )
 
-    index.upsert(vectors=[old_data])
-
-    return
+    return update_response
 
 
 @app.post("/post-call-logs")
