@@ -19,7 +19,7 @@ from classes.app_types import CreateIndex, Upsert, Query
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
-from configs.tables import INDEXES, INDEXES_TO_CREATE
+from configs.tables import INDEXES, INDEXES_TO_CREATE, CALL_LOGS
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
@@ -70,8 +70,8 @@ def create_index():
 
 # upserting data into pinecone
 @app.post("/upsert-vectors")
-def upsert(data: Upsert):
-    return upsert_vectors(data)
+def upsert(data: Upsert, index_name="test-api"):
+    return upsert_vectors(data, index_name)
 
 
 import logging
@@ -128,12 +128,17 @@ def post_vector(index_name: str, data: Upsert):
     print(data)
     return
 
+@app.post("/post-call-logs")
+def post_call_logs():
+    return
+
 
 ## LOGS SUMMARY GET
 # get logs summary,return string
 @app.get("/logs-summary")
 def get_logs_summary():
     # call openai api on all logs
+
     return
 
 
