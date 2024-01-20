@@ -1,16 +1,28 @@
+"use client";
+
 import Logs from '@/features/logs/components/Logs'
 import { data } from '@/features/logs/types/data'
-import React from 'react'
+import { getLogs } from '@/service/logs';
+import React, { useEffect, useState } from 'react'
 
-type Props = {}
+const Page = () => {
+  const logs = data
+  // TODO: change to logs 
+  const [logState, setLogsState] = useState(null)
 
-const page = (props: Props) => {
-    const logs = data
+  useEffect(() => {
+    getLogs().then((res) => {
+      setLogsState(res);
+    }, (err) => {
+      console.error(err.message)
+    })
+  },[])
+
   return (
     <div>
-        <Logs logs={logs}/>
+      {logs && <Logs logs={logs}/>}
     </div>
   )
 }
 
-export default page
+export default Page

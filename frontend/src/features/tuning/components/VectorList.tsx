@@ -2,33 +2,24 @@
 
 import React from 'react'
 import VectorCard from './VectorCard'
+import { Vector } from '../types/tuning.type';
 
-type Props = {}
-
-const data = [
-    {
-        index: "Steps to save"
-    },
-    {
-        index: "Steps to start"
-    },
-    {
-        index: "Steps to close"
-    },
-    {
-        index: "Steps to delete"
-    },
-]
+type Props = {
+    data: Vector[];
+    name: string;
+}
 
 const VectorList = (props: Props) => {
+    const data = props.data;
   return (
     <div className='space-y-4 w-full'>
         {data.map((o) => (
-            <VectorCard data={o} key={o.index}/>
+            <VectorCard data={o} key={o.id} name={props.name}/>
         ))}
-
     </div>
   )
 }
+
+
 
 export default VectorList
