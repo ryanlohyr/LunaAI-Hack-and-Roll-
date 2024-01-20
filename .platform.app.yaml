@@ -22,8 +22,13 @@ mounts:
 # The size of the persistent disk of the application (in MB).
 disk: 2048
 
+dependencies: 
+  python3: # Specify one Python 3 package per line.
+    pipenv: '*'
+
 hooks:
     build: |
+      pipenv install -r requirements.txt
       pipenv install --system --deploy
 
 web:
