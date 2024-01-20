@@ -38,7 +38,9 @@ def get_context(prompt: str, model_name=GPT_4):
 
     outputs.sort(key=lambda x: x["matches"][0]['score'], reverse=True)
 
-    return
+    top_3_content = '\n\n'.join([x["metadata"]["content"] for x in outputs[0]["matches"]])
+    # print(top_3_content)
+    return top_3_content
 
     contexts = [
         f"""fields in table {x['metadata']['name']}: {x['metadata']['fields']}"""
