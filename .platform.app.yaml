@@ -29,7 +29,6 @@ dependencies:
 hooks:
     build: |
       pipenv install -r requirements.txt
-      pipenv install --system --deploy
 
 web:
   commands: 
