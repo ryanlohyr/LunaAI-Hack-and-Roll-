@@ -46,8 +46,8 @@ def get_embeddings(data):
         return list(zip(ids_batch, embeds, metadata_batch))
 
 
-def upsert_vectors(topics):
-    to_upsert = get_embeddings(topics)
+def upsert_vectors(data):
+    to_upsert = get_embeddings(data)
     if not to_upsert:
         return
 

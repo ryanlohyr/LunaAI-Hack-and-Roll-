@@ -1,188 +1,189 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "content": "The Central Provident Fund (CPF) is a key pillar of Singapore’s social security system. CPF helps Singapore Citizens and Permanent Residents set aside funds to build a strong foundation for retirement.",
     "metadata": {
       "header": "<h2>How CPF works</h2>"
     }
   },
   {
-    "id": 2,
+    "id": "2",
     "content": "1) A fully paid-up home\n Owning a home means you don’t have to worry about rent. Strike a balance and buy a property within your means. Your CPF savings eventually form your retirement income. So every dollar you spend on housing could be a dollar less for your retirement needs. 2)Insurance and savings for healthcare\n This is where your MediSave savings come in. Think of it as your healthcare savings account. It helps you set aside part of your income for medical expenses such as hospitalisation and outpatient treatments. You can also use MediSave to cover premiums for MediShield Life and other approved medical and long-term care insurance. 3) A steady stream of lifelong retirement income\n While we know how much we have saved, we can’t predict how long each of us will live. That’s why we have CPF LIFE, our national longevity insurance annuity scheme.Get monthly payouts no matter how long you live, so that you can enjoy your CPF savings with greater peace of mind.",
     "metadata": {
       "header": "<h2>How CPF works</h2><h3>The three basic needs in retirement</h3>"
     }
   },
   {
-    "id": 3,
+    "id": "3",
     "content": "Special Account: For old age and investment in retirement-related financial products\n Ordinary Account: For retirement, housing, insurance, and investment MediSave Account: For hospitalisation expenses and approved medical insurance Retirement Account: For monthly retirement payouts (Age 55 and above)",
     "metadata": {
       "header": "<h2>How CPF works</h2><h3>Your CPF accounts</h3><h4>A comprehensive savings system</h4>"
     }
   },
   {
-    "id": 4,
+    "id": "4",
     "content": "| Employee’s age (years) | By employer (% of wage) | By employee (% of wage) | Total (% of wage) |\n|------------------------|-------------------------|-------------------------|-------------------|\n| 55 and below           | 17                      | 20                      | 37                |\n| Above 55 to 60         | 15                      | 16                      | 31                |\n| Above 60 to 65         | 11.5                    | 10.5                    | 22                |\n| Above 65 to 70         | 9                       | 7.5                     | 16.5              |\n| Above 70               | 7.5                     | 5                       | 12.5              |",
     "metadata": {
       "header": "<h2>How CPF works</h2><h3>How much you contribute based on age table (for monthly wages > $750)</h3>"
     }
   },
   {
-    "id": 5,
+    "id": "5",
     "content": "Depending on your age, CPF contribution rates can range from 12.5% to 37% of your monthly wages. ",
     "metadata": {
       "header": "<h2>How CPF works</h2><h3>How much you contribute depends on age</h3>"
     }
   },
   {
-    "id": 6,
+    "id": "6",
     "content": "Besides employment contributions, CPF accounts will also be opened when the CPF Board receives cash top-ups or government grants. \nFor example, if you make a cash top-up for your child, or when a Singapore Citizen newborn qualifies for a MediSave grant.",
     "metadata": {
       "header": "<h2>How CPF works</h2><h3>Your CPF accounts</h3><h3>Other ways CPF accounts might be opened</h3>"
     }
   },
   {
-    "id": 7,
+    "id": "7",
     "content": "Earn stable interest of up to 5% per annum if you’re below 55. Gain up to 6% per annum if you’re 55 and older.",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>How to save more and earn interest</h3>"
     }
   },
   {
-    "id": 8,
+    "id": "8",
     "content": "If you’re below 55, for every dollar that you contribute to your SA from your employment, your employer chips in another $0.85, giving you $1.85.\nThis $1.85 will double to $3.70 in about 20 years, and $7.40 in about 40 years*. This is seven times more than the $1 you contributed. *Computed using the base interest of 4% per annum on your SA",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Earn more with compound interest</h3>"
     }
   },
   {
-    "id": 9,
+    "id": "9",
     "content": "Besides paying stable interest, the Singapore Government also supplements your retirement savings through the Workfare Income Supplement (WIS) Scheme. \nWIS encourages eligible workers to work and build up their CPF savings for retirement, housing, and healthcare.",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Government support for you</h3>"
     }
   },
   {
-    "id": 9,
+    "id": "10",
     "content": "If you’re self-employed, you need to contribute to MediSave. These savings will be especially important in old age when you may have stopped working. \nFor your convenience, if you receive service payments from government agencies, they’ll deduct a portion of your payment and credit it into your MA. Making smaller and more regular MediSave contributions as and when you receive payments makes saving for your healthcare needs easier.",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Self-employed</h3>"
     }
   },
   {
-    "id": 10,
+    "id": "11",
     "content": "Whether you’re an employee or are self-employed, you can grow your savings by making cash top-ups to either your OA, SA, and MA or Only your MA. \n By making cash top-ups, you can earn interest even when you’re not working or do not have regular CPF contributions. ",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Make cash top-ups</h3>"
     }
   },
   {
-    "id": 11,
+    "id": "12",
     "content": "If you would like to save specifically for retirement, you can top up your SA or RA using cash or CPF savings.",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Top up with a mix of cash and CPF savings</h3>"
     }
   },
   {
-    "id": 12,
+    "id": "13",
     "content": "If you’re 55 to 70 and have yet to meet the current Basic Retirement Sum (BRS), you can make cash top-ups to get higher retirement payouts. \n The Singapore Government will match every dollar of cash top-ups made to your RA, up to a maximum grant of $600 a year. The scheme will run from 2021 for five years for a start. ",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Top up under the Matched Retirement Savings Scheme (MRSS)</h3>"
     }
   },
   {
-    "id": 13,
+    "id": "14",
     "content": "You have the option of investing in a wide range of investments to grow your retirement nest egg. If you’re not confident of investing on your own, you should leave your savings in your CPF account and earn interest.",
     "metadata": {
       "header": "<h2>Growing your CPF</h2><h3>Invest your OA and SA savings</h3>"
     }
   },
   {
-    "id": 14,
+    "id": "15",
     "content": "Another way to grow your retirement savings is to make a partial or full voluntary refund of the CPF savings you’ve used to buy your house. ",
     "metadata": {
-      "header": "<h2>Growing your CPF</h2><h3>Voluntary Housing Refund</h3>"
+      "header": "<h2>Growing your CPF</h2><h3>Voluntary Housing Refund</h3>",
+      "content": "Another way to grow your retirement savings is to make a partial or full voluntary refund of the CPF savings you’ve used to buy your house. ",
     }
   },
   {
-    "id": 15,
+    "id": "16",
     "content": "Many members use CPF to buy a property or service a housing loan. \n Important thing to note: While you may use your OA savings to pay for your property, consider keeping some savings. These savings can help with future mortgage payments in times of emergency. If left unused, these savings can grow at stable interest rates.",
     "metadata": {
       "header": "<h2>Using your CPF</h2><h3>Using your OA savings</h3>"
     }
   },
   {
-    "id": 16,
+    "id": "17",
     "content": "MediSave is a national savings scheme which helps CPF members save for medical expenses, especially after retirement. You can use your MediSave savings for your own and your dependants’ hospitalisation, day surgery, and certain outpatient expenses.",
     "metadata": {
       "header": "<h2>Using your CPF</h2><h3>Using your MA savings</h3><h4>​MA savings can be used for hospitalisation and approved medical insurance</h4>"
     }
   },
   {
-    "id": 17,
+    "id": "18",
     "content": "You can also use your MA savings to pay for the yearly premiums on approved insurance plans including: ElderShield, CareShield Life, MediShield Life, Other medical insurance offering additional benefits on top of those provided by MediShield Life",
     "metadata": {
       "header": "<h2>Using your CPF</h2><h3>Using your MA savings</h3><h4>Payment of premiums for insurance coverage</h4>"
     }
   },
   {
-    "id": 18,
+    "id": "19",
     "content": "Another way to grow your retirement savings is to make a partial or full voluntary refund of the CPF savings you’ve used to buy your house. ",
     "metadata": {
       "header": "<h2>Using your CPF</h2><h3>Voluntary Housing Refund</h3>"
     }
   },
   {
-    "id": 19,
+    "id": "20",
     "content": "When you retire, your CPF savings can offer a source of funds to meet your daily expenses.",
     "metadata": {
       "header": "<h2>Retiring Well, Enjoying your retirement income</h2>"
     }
   },
   {
-    "id": 20,
+    "id": "21",
     "content": "From age 55, you have the flexibility to withdraw your CPF savings after setting aside the applicable retirement sum in your RA. You can withdraw at any time, whether in full or partially, and as frequently as you like. Important note: You do not have to withdraw all your withdrawable savings at one go. If you do not have an immediate need, you may find it better to leave your savings in your CPF accounts to earn interest of up to 6% per annum.",
     "metadata": {
       "header": "<h2>Retiring Well, Enjoying your retirement income</h2><h3>Using your RA savings​</h3><h4>Retirement withdrawals</h4>"
     }
   },
   {
-    "id": 21,
+    "id": "22",
     "content": "After age 65, you can apply to start receiving lifelong monthly payouts under CPF LIFE. You'll use your RA savings to join CPF LIFE.",
     "metadata": {
       "header": "<h2>Retiring Well, Enjoying your retirement income</h2><h3>Monthly payouts for as long as you live</h3>"
     }
   },
   {
-    "id": 22,
+    "id": "23",
     "content": "Besides renting out your flat or spare bedroom for rental income, you can apply for the: SHB when you right-size your HDB flat. LBS when you sell the tail-end of your flat’s lease",
     "metadata": {
       "header": "<h2>Retiring Well, Enjoying your retirement income</h2><h3>Housing monetisation</h3><h4>Silver Housing Bonus (SHB) and Lease Buyback Scheme (LBS)</h4>"
     }
   },
   {
-    "id": 23,
+    "id": "24",
     "content": "The amount you gain from monetising your house will go towards your RA to join CPF LIFE. Part of it will also be paid to you in cash.",
     "metadata": {
       "header": "<h2>Retiring Well, Enjoying your retirement income</h2><h3>Housing monetisation</h3><h4>Sales proceeds</h4>"
     }
   },
   {
-    "id": 24,
+    "id": "25",
     "content": "Upon death, your CPF savings will be paid out and distributed. If a CPF Nomination is made, it will be distributed to the nominee(s) in the proportion stated.  Without a CPF Nomination, CPF savings will be transferred to the Public Trustee for distribution in accordance with the intestacy or Muslim inheritance laws of Singapore. ",
     "metadata": {
       "header": "<h2>Account Closure</h2><h3>CPF Nomination and account closure</h3>"
     }
   },
   {
-    "id": 25,
+    "id": "26",
     "content": "SSS provides quarterly cash supplements to seniors who had low incomes during their working years and now have less in retirement.",
     "metadata": {
       "header": "<h2>Getting Support/h2><h3>Government support for those earning less</h3><h4>Silver Support Scheme (SSS)</h4>"
     }
   },
   {
-    "id": 26,
+    "id": "27",
     "content": "In recent years, the Government has put in a wider suite of schemes to give seniors greater assurance in retirement. This includes healthcare subsidies and GST vouchers.",
     "metadata": {
       "header": "<h2>Getting Support/h2><h3>Government support for those earning less</h3><h4>Other targeted efforts</h4>"

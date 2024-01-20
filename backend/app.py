@@ -13,19 +13,22 @@ from classes.exception_types import PromptTooLong
 from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
-from classes.app_types import CreateIndex, Upsert
+from classes.app_types import CreateIndex, Upsert, Query
+import uvicorn
+from vector_database.index import get_index
+from vector_database.db import upsert_vectors
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 
 app = FastAPI()
-pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-
+index = get_index()
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the FastAPI Microservice!"}
 
+# creating a new pinecone index (feed in index name as argument)
 @app.post("/create-index")
 def create_index(index: CreateIndex):
     pc.create_index(
@@ -35,6 +38,30 @@ def create_index(index: CreateIndex):
         spec=PodSpec(environment="us-west1-gcp", pod_type="p1.x1")
     )
 
-@app.post("upsert-vectors")
+# upserting data into pinecone
+@app.post("/upsert-vectors")
 def upsert(data: Upsert):
-    pc.upsert_vectors(data)
+    return upsert_vectors(data)
+
+import logging
+import json
+
+def read_json(file):
+    try:
+        print('Reading from input')
+        with open(file, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        raise e
+
+@app.post("/upsert-sample-data")
+def upsert_sample_data():
+    return_dict = read_json("./Overview.json")
+    return upsert_vectors(return_dict)
+
+@app.post("/query-data")
+def query(query: Query):
+    return get_context(query.question)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)

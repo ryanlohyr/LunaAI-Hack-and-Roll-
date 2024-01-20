@@ -8,7 +8,7 @@ class CreateIndex(BaseModel):
 class Upsert(BaseModel):
   data_arr: List = [
     {
-      "id": int,
+      "id": str,
       "content": str,
       "metadata": {
         "header": str
@@ -16,3 +16,6 @@ class Upsert(BaseModel):
 
     }
   ]
+
+class Query(BaseModel):
+  question: str

@@ -9,13 +9,27 @@ from configs.models import (
 from utils.calculations import TokenBuffer
 from vector_database.index import get_index
 
-def get_context(prompt, is_sql, model_name=FINE_TUNE_BASE_MODEL):
+def get_context(prompt: str, model_name=FINE_TUNE_BASE_MODEL):
     full_embedding = openai.Embedding.create(input=[prompt], engine=EMBEDDING_MODEL)
 
+    # return full_embedding
+
     vectorized_prompt = full_embedding["data"][0]["embedding"]
+
+    # return vectorized_prompt
     index = get_index()
 
-    db_output = index.query(vector=vectorized_prompt, top_k=3, include_metadata=True)
+
+    db_output = index.query(
+        vector=vectorized_prompt,
+        top_k=3,
+        include_metadata=True
+    )
+    # index.query(vector=vectorized_prompt, top_k=3, include_values=True)
+
+    print(db_output["matches"][0]["metadata"]["content"])
+
+    return 
 
     contexts = [
         f"""fields in table {x['metadata']['name']}: {x['metadata']['fields']}"""
