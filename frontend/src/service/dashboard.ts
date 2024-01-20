@@ -1,8 +1,8 @@
-import { Metadata } from "@/features/tuning/types/tuning.type";
+import { Vector } from "@/features/tuning/types/tuning.type";
 import { api } from "./api"
 
 export const getImptInfo = async () => {
-    const res = await api.get("/")
+    const res = await api.get("/index/important-info")
     return res.data;
 }
 
@@ -21,13 +21,12 @@ export const getPendingActions = async () => {
     return res.data;
 }
 
-// TODO: replace with official routes
 export const postPresetPrompt = async (prompt: string) => {
     const res = await api.post("/preset", {prompt: prompt})
     return res.data
 }
 
-export const postImptInfo = async (data: Metadata[]) => {
+export const postImptInfo = async (data: Vector[]) => {
     const res = await api.post("/impt-info", {data: data})
     return res.data
 }

@@ -18,20 +18,33 @@ the cites of the word in classical literature, discovered the undoubtable source
 
 const imptInfo = [
   {
-    header: "OSHE Number",
-    content: "88888888",
+    id: "1",
+    metadata: {
+      header: "OSHE Number",
+      content: "88888888",
+    }
   },
   {
-    header: "Rape Number",
+    id: "2",
+    metadata: {
+      header: "Rape Number",
     content: "88888888",
+    }
   },
   {
-    header: "Mingyuan Number",
-    content: "83152835",
+    id: "3",
+    metadata: {
+      header: "Mingyuan Number",
+      content: "83152835",
+    }
+    
   },
   {
-    header: "Admissions Enquiry",
-    content: "88888888",
+    id: "4",
+    metadata: {
+      header: "Admissions Enquiry",
+      content: "88888888",
+    }
   },
 ]
 
