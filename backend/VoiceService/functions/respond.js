@@ -8,7 +8,6 @@ exports.handler = async function (context, event, callback) {
         apiKey: context.OPENAI_API_KEY,
     });
 
-
     // Set up the Twilio VoiceResponse object to generate the TwiML
     const twiml = new Twilio.twiml.VoiceResponse();
 
@@ -60,10 +59,12 @@ exports.handler = async function (context, event, callback) {
     twiml.redirect({
         method: "POST",
     },
-        `/transcribe`
+        `/processInput`
     );
 
-    // Since we're using the response object to handle cookies we can't just pass the TwiML straight back to the callback, we need to set the appropriate header and return the TwiML in the body of the response
+    // Since we're using the response object to handle cookies we can't 
+    // just pass the TwiML straight back to the callback, we need to set the 
+    // appropriate header and return the TwiML in the body of the response
     response.appendHeader("Content-Type", "application/xml");
     response.setBody(twiml.toString());
 
