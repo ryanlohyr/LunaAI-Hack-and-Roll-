@@ -15,26 +15,27 @@ embedding_model = EMBEDDING_MODEL
 
 
 def get_embeddings(data):
-
     batch_size = 100  # create 100 embeddings at once
 
     for i in tqdm(range(0, len(data), 100)):  # iterate through all the tables
         i_end = min(len(data), i + batch_size)  # find end of batch
         meta_batch = data[i:i_end]
 
-        ids_batch = [x["name"] for x in meta_batch]
+        ids_batch = [x["id"] for x in meta_batch]
 
-        descriptions = [x["description"] for x in meta_batch]
+        content_batch = [x["content"] for x in meta_batch]
+
+        metadata_batch = [x["metadata"] for x in meta_batch]
 
         try:  # create embeddings (try-except added to avoid RateLimitError)
-            res = openai.Embedding.create(input=descriptions, engine=embedding_model)
+            res = openai.Embedding.create(input=content_batch, engine=embedding_model)
         except Exception:
             done = False
             while not done:
                 sleep(5)
                 try:
                     res = openai.Embedding.create(
-                        input=descriptions, engine=embedding_model
+                        input=content_batch, engine=embedding_model
                     )
                     done = True
                 except Exception:
@@ -42,7 +43,7 @@ def get_embeddings(data):
 
         embeds = [record["embedding"] for record in res["data"]]
 
-        return list(zip(ids_batch, embeds, meta_batch))
+        return list(zip(ids_batch, embeds, metadata_batch))
 
 
 def upsert_vectors(topics):
@@ -56,5 +57,5 @@ def upsert_vectors(topics):
     return to_upsert
 
 
-if __name__ == "__main__":
-    upsert_vectors(topics=topic_list)
+# if __name__ == "__main__":
+#     upsert_vectors(topics=topic_list)
