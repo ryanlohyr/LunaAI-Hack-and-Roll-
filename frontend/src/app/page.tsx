@@ -55,37 +55,53 @@ export default function Home() {
   const [pendingActions, setPendingActionsState] = useState(null)
 
   useEffect(() => {
-    getImptInfo().then(
-      (res) => {
-        setImptInfoState(res);
-      }, (err) => {
-        console.error(err.message)
-      }
-    )
+    Promise.all([
+      getImptInfo(),
+      getPresetPrompt(),
+      getLogsSummary(),
+      getPendingActions()
+    ])
+    .then(([imptInfoRes, presetPromptRes, logsSummaryRes, pendingActionsRes]) => {
+      setImptInfoState(imptInfoRes);
+      setPresetState(presetPromptRes[0].metadata.content);
+      setLogsSummaryState(logsSummaryRes);
+      setPendingActionsState(pendingActionsRes);
+    })
+    .catch((err) => {
+      console.error(err.message);
+    });
     
-    getPresetPrompt().then(
-      (res) => {
-        setPresetState(res[0].metadata.content);
-      }, (err) => {
-        console.error(err.message)
-      }
-    )
+    // getImptInfo().then(
+    //   (res) => {
+    //     setImptInfoState(res);
+    //   }, (err) => {
+    //     console.error(err.message)
+    //   }
+    // )
+    
+    // getPresetPrompt().then(
+    //   (res) => {
+    //     setPresetState(res[0].metadata.content);
+    //   }, (err) => {
+    //     console.error(err.message)
+    //   }
+    // )
 
-    getLogsSummary().then(
-      (res) => {
-        setLogsSummaryState(res);
-      }, (err) => {
-        console.error(err.message)
-      }
-    )
+    // getLogsSummary().then(
+    //   (res) => {
+    //     setLogsSummaryState(res);
+    //   }, (err) => {
+    //     console.error(err.message)
+    //   }
+    // )
 
-    getPendingActions().then(
-      (res) => {
-        setPendingActionsState(res);
-      }, (err) => {
-        console.error(err.message)
-      }
-    )
+    // getPendingActions().then(
+    //   (res) => {
+    //     setPendingActionsState(res);
+    //   }, (err) => {
+    //     console.error(err.message)
+    //   }
+    // )
   },[])
 
   return (
