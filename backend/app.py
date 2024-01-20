@@ -5,11 +5,9 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-# from configs import EMBEDDING_MODEL, EMBEDDING_TOKEN_LIMIT, GPT_4
 from vector_database.retrieve import get_context
 from vector_database.get_output import get_model_output
 from classes.exception_types import PromptTooLong
-# from src.classes.param_types import Input
 from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
@@ -17,11 +15,13 @@ from classes.app_types import CreateIndex, Upsert, Query
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
+from configs.tables import INDEXES, OVERVIEW_TABLE, CPF_CONTRIBUTION_EMPLOYEE, CPF_CONTRIBUTION_SELFEMPLOYED
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 
 app = FastAPI()
+pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = get_default_index()
 
 @app.get("/")
@@ -31,12 +31,27 @@ def read_root():
 # creating a new pinecone index (feed in index name as argument)
 @app.post("/create-index")
 def create_index(index: CreateIndex):
-    pc.create_index(
+    index.create_index(
         name=index.index_name,
         dimension=1536,  # standard for OpenAI Ada embedding
         metric="cosine",
         spec=PodSpec(environment="us-west1-gcp", pod_type="p1.x1")
     )
+
+# creating all the default indexes
+@app.post("/create-all-indexes")
+def create_index():
+    index_list = [x["name"] for x in pc.list_indexes()]
+    # print(index_list)
+    for i in INDEXES:
+        if i not in index_list:
+            # print(i)
+            pc.create_index(
+                name=i,
+                dimension=1536,  # standard for OpenAI Ada embedding
+                metric="cosine",
+                spec=PodSpec(environment="us-west1-gcp", pod_type="p1.x1")
+            )
 
 # upserting data into pinecone
 @app.post("/upsert-vectors")
@@ -56,8 +71,15 @@ def read_json(file):
 
 @app.post("/upsert-sample-data")
 def upsert_sample_data():
-    return_dict = read_json("./Overview.json")
-    return upsert_vectors(return_dict)
+    file_paths = [
+        "./data/Overview.json",
+        "./data/CpfContributionEmployee.json",
+        "./data/CpfContributionSelfEmployed.json"
+    ]
+
+    for i in range(len(file_paths)):
+        dict = read_json(file_paths[i])
+        upsert_vectors(dict, INDEXES[i])
 
 @app.post("/query-data")
 def query(query: Query):

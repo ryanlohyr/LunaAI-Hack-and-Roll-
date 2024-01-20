@@ -3,26 +3,40 @@ import openai
 from configs.models import (
     EMBEDDING_MODEL,
     FINE_TUNE_BASE_MODEL,
+    GPT_4
     # generate_natural_lang_boilerplate_start,
     # generate_query_boilerplate_start,
 )
 from utils.calculations import TokenBuffer
-from vector_database.index import get_default_index
+from vector_database.index import get_default_index, get_all_indexes
 
-def get_context(prompt: str, model_name=FINE_TUNE_BASE_MODEL):
+def get_context(prompt: str, model_name=GPT_4):
     full_embedding = openai.Embedding.create(input=[prompt], engine=EMBEDDING_MODEL)
 
     vectorized_prompt = full_embedding["data"][0]["embedding"]
 
-    index = get_default_index()
+    # just query for one index
+    # index = get_default_index()
+    # db_output = index.query(
+    #     vector=vectorized_prompt,
+    #     top_k=3,
+    #     include_metadata=True
+    # )
 
-    db_output = index.query(
-        vector=vectorized_prompt,
-        top_k=3,
-        include_metadata=True
-    )
+    # print(db_output["matches"])
 
-    print(db_output["matches"])
+    # queries all the indexes
+    indexes = get_all_indexes()
+    outputs = []
+
+    for i in indexes:
+        outputs.append(i.query(
+            vector=vectorized_prompt,
+            top_k=3,
+            include_metadata=True
+    ))
+
+    outputs.sort(key=lambda x: x["matches"][0]['score'], reverse=True)
 
     return
 

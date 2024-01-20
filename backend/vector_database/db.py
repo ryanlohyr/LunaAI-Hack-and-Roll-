@@ -7,7 +7,7 @@ from tqdm.auto import tqdm
 
 from configs.models import EMBEDDING_MODEL
 
-from .index import get_default_index
+from .index import get_specific_index
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -46,16 +46,12 @@ def get_embeddings(data):
         return list(zip(ids_batch, embeds, metadata_batch))
 
 
-def upsert_vectors(data):
+def upsert_vectors(data, index_name="test-api"):
     to_upsert = get_embeddings(data)
     if not to_upsert:
         return
 
-    index = get_default_index()
+    index = get_specific_index(index_name)
     index.upsert(vectors=to_upsert)
 
     return to_upsert
-
-
-# if __name__ == "__main__":
-#     upsert_vectors(topics=topic_list)
