@@ -1,5 +1,6 @@
 // Import the OpenAI module
 const { OpenAI } = require("openai");
+const axios = require('axios');
 
 // Define the main function for handling requests
 exports.handler = async function (context, event, callback) {
@@ -7,6 +8,20 @@ exports.handler = async function (context, event, callback) {
     const openai = new OpenAI({
         apiKey: context.OPENAI_API_KEY,
     });
+
+    // const language = event.language;
+    const language = event.request.cookies.languageChosen;
+    let voice;
+
+    if (language === "en-US") {
+        voice = "Polly.Joanna-Neural"
+    } else if (language === "Cmn-Hans-CN") {
+        voice = "Polly.Zhiyu-Neural"
+    } else if (language === "ta-IN") {
+        voice = "Polly.Aditi"
+    } else {
+        voice = "Polly.Joanna-Neural"
+    }
 
     // Set up the Twilio VoiceResponse object to generate the TwiML
     const twiml = new Twilio.twiml.VoiceResponse();
@@ -23,34 +38,19 @@ exports.handler = async function (context, event, callback) {
 
     // Create a conversation object to store the dialog and the user's input to the conversation history
     const conversation = cookieData?.conversation || [];
-    conversation.push({ role: 'user', content: voiceInput });
+    // conversation.push({ role: 'user', content: voiceInput });
 
     // Get the AI's response based on the conversation history
-    const aiResponse = await createChatCompletion(conversation);
-    // const aiResponse = "春天的花园里，五彩缤纷的花朵争相绽放，吸引了许多蜜蜂和蝴蝶来访，整个场景充满了生机和希望。"
-
-
-
+    const aiResponse = await createChatCompletion(conversation, voiceInput, event.request.cookies.id);
 
     // Add the AI's response to the conversation history
-    //   conversation.push(aiResponse);
     conversation.push({ role: 'system', content: aiResponse });
 
-    // Limit the conversation history to the last 20 messages; you can increase this if you want but keeping things short for this demonstration improves performance
-    while (conversation.length > 20) {
-        conversation.shift();
-    }
 
-    // // Generate some <Say> TwiML using the cleaned up AI response
-    // twiml.say({
-    //     voice: "Polly.Joanna-Neural",
-    // },
-    //     aiResponse
-    // );
 
     // Generate some <Say> TwiML using the cleaned up AI response
     twiml.say({
-        voice: "Polly.Zhiyu-Neural",
+        voice: voice,
     },
         aiResponse
     );
@@ -79,51 +79,46 @@ exports.handler = async function (context, event, callback) {
 
 
     // Function to create a chat completion using the OpenAI API
-    async function createChatCompletion(conversation) {
+    async function createChatCompletion(conversation, voiceInput, id) {
         try {
-            // const messages = conversation.map(
-            //     x.content
-            // )
-
-            const message = conversation[conversation.length - 1].content
 
             // combine the content of the conversation messages into a string
-            // combined_messages = messages.join("\n")
-
             let pineconeResponse
 
-            // call pinecone to find the most relevant documents 
-            $.ajax({
-                type: "POST",
-                url: "/query_pinecone.py",
-                // data: { question: combined_messages },
-                data: { question: message },
-                success: (response) => pineconeResponse = response
-            });
+            // // call pinecone to find the most relevant documents 
+
+            axios.post('https://d4f9-137-132-26-227.ngrok-free.app/query-data', { question: voiceInput, id: id, conversation: conversation })
+                .then((response) => {
+                    pineconeResponse = response;
+                    console.log(pineconeResponse);
+                })
+                .catch((error) => {
+                    pineconeResponse = "Sorry, I don't understand. Please try again.";
+                    console.error(error);
+                });
 
             const prompt = `
-                Answer the question based on the given context only. Append at the end of your answer the following message: "This is from Pinecone!"
-
-                ###
+                Keep the answer and below 40 words. Answer the question and mention the important information in ${language} based on the given context only."
+                Do not mention about referring to the website or referring to customer service as this chatbot is suppose to replace them.
+                ### Context 
                     ${pineconeResponse}
                 ###
 
-                ${messages[messages.length - 1]}
+                ${voiceInput}
             `
+            // update the last message to be the formatted prompt
+            conversation.push({ role: 'user', content: voiceInput });
 
             // Define system messages to model the AI
             const systemMessages = [{
                 role: "system",
-                content: "You are a customer service chatbot for Singapore's Central Provisional Fund (CPF), Answer the question based on the context"
+                content: `You are a customer service chatbot that will respond in ${language} for Singapore's Central Provisional Fund (CPF), Answer the question based on the context`
             },
             {
                 role: "user",
                 content: 'We are having a casual conversation over the telephone so please provide engaging but concise responses.'
             },
             ];
-
-            // update the last message to be the formatted prompt
-            conversation[conversation.length-1].content = prompt
 
             // caveat that we need to account for token limit when feeding into the gpt model (edge case of too long chat history)
             inputMessages = systemMessages.concat(conversation);
@@ -136,7 +131,18 @@ exports.handler = async function (context, event, callback) {
                 top_p: 0.9, // Set the top_p value to around 0.9 to keep the generated responses focused on the most probable tokens without completely eliminating creativity. Adjust the value based on the desired level of exploration.
                 n: 1, // Specifies the number of completions you want the model to generate. Generating multiple completions will increase the time it takes to receive the responses.
             });
-            return chatCompletion.choices[0].message.content;
+
+            aiAnswer = chatCompletion.choices[0].message.content
+
+            // axios.post('https://d4f9-137-132-26-227.ngrok-free.app/post-call-logs', { id: event.id, content: [...conversation, { role: 'system', content: aiAnswer }] })
+            //     .then((response) => {
+            //         console.log(pineconeResponse);
+            //     })
+            //     .catch((error) => {
+            //         console.error(error);
+            //     });
+
+            return aiAnswer;
 
         } catch (error) {
             console.error("Error during OpenAI API request:", error);
