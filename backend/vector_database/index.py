@@ -2,22 +2,19 @@ import os
 
 from pinecone import Pinecone
 from dotenv import load_dotenv
+from configs.tables import INDEXES
 
 load_dotenv()
 
 
-def get_index():
+def get_default_index(index_name="test-api"):
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-    index = pc.Index("test-api")
+    index = pc.Index(index_name)
 
-    # if index_name not in pinecone.list_indexes():
-    #     # if does not exist, create index
-    #     pinecone.create_index(
-    #         index_name,
-    #         dimension=1536,  # standard for OpenAI Ada embedding
-    #         metric="cosine",
-    #         metadata_config={"indexed": ["channel_id", "published"]},
-    #     )
-
-    # connect to index
     return index
+
+def get_all_indexes():
+    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+    indexes = [pc.Index(x) for x in INDEXES]
+
+    return indexes

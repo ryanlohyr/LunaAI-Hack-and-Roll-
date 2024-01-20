@@ -5,10 +5,10 @@ from configs.models import (
     complete_fine_tune,
 )
 from utils.calculations import TokenBuffer
-from vector_database.index import get_index
+from vector_database.index import get_default_index
 
 
-index = get_index()
+index = get_default_index()
 
 
 def get_query(prompt, model_name):

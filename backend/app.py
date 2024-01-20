@@ -15,14 +15,14 @@ from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
 from classes.app_types import CreateIndex, Upsert, Query
 import uvicorn
-from vector_database.index import get_index
+from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 
 app = FastAPI()
-index = get_index()
+index = get_default_index()
 
 @app.get("/")
 def read_root():
