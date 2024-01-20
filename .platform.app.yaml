@@ -33,6 +33,9 @@ hooks:
 web:
   commands: 
     start: "python3 -m uvicorn app:app --reload"
+  upstream:
+    socket_family: tcp
+    protocol: http
   # locations:
   #   "/metal":
   #         root: "app_subdir/build"
