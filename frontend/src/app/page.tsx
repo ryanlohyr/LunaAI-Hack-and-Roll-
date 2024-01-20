@@ -54,11 +54,10 @@ import { useEffect, useState } from "react";
 // ]
 
 export default function Home() {
-  // TODO: change to official names when api integrated
-  const [presetState, setPresetState] = useState(null);
-  const [imptInfoState, setImptInfoState] = useState(null);
-  const [logsSummaryState, setLogsSummaryState] = useState(null);
-  const [pendingActionsState, setPendingActionsState] = useState(null);
+  const [presetPrompt, setPresetState] = useState(null);
+  const [imptInfo, setImptInfoState] = useState(null);
+  const [logsSummary, setLogsSummaryState] = useState(null);
+  const [pendingActions, setPendingActionsState] = useState(null);
 
   useEffect(() => {
     Promise.all([
