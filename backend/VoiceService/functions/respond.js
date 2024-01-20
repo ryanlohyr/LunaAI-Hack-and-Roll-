@@ -81,12 +81,14 @@ exports.handler = async function (context, event, callback) {
     // Function to create a chat completion using the OpenAI API
     async function createChatCompletion(conversation) {
         try {
-            const messages = conversation.map(
-                x.content
-            )
+            // const messages = conversation.map(
+            //     x.content
+            // )
+
+            const message = conversation[conversation.length - 1].content
 
             // combine the content of the conversation messages into a string
-            combined_messages = messages.join("\n")
+            // combined_messages = messages.join("\n")
 
             let pineconeResponse
 
@@ -94,7 +96,8 @@ exports.handler = async function (context, event, callback) {
             $.ajax({
                 type: "POST",
                 url: "/query_pinecone.py",
-                data: { question: combined_messages },
+                // data: { question: combined_messages },
+                data: { question: message },
                 success: (response) => pineconeResponse = response
             });
 
@@ -111,7 +114,7 @@ exports.handler = async function (context, event, callback) {
             // Define system messages to model the AI
             const systemMessages = [{
                 role: "system",
-                content: 'You are a customer service chatbot for NUS, Answer the question based on the context'
+                content: "You are a customer service chatbot for Singapore's Central Provisional Fund (CPF), Answer the question based on the context"
             },
             {
                 role: "user",
