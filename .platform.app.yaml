@@ -28,7 +28,7 @@ dependencies:
 
 hooks:
     build: |
-      pipenv install -r requirements.txt
+      pipenv install -r backend/requirements.txt
 
 web:
   commands: 
