@@ -22,13 +22,13 @@ mounts:
 # The size of the persistent disk of the application (in MB).
 disk: 2048
 
-dependencies: 
-  python3: # Specify one Python 3 package per line.
-    pip3: '*'
+# dependencies: 
+#   python3: # Specify one Python 3 package per line.
+#     pip3: '*'
 
 hooks:
     build: |
-      pip3 install -r backend/requirements.txt
+      pip install -r backend/requirements.txt
 
 web:
   commands: 
