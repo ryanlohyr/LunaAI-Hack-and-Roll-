@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-# from configs import EMBEDDING_MODEL, EMBEDDING_TOKEN_LIMIT, GPT_3_dot_5
+# from configs import EMBEDDING_MODEL, EMBEDDING_TOKEN_LIMIT, GPT_4
 from vector_database.retrieve import get_context
 from vector_database.get_output import get_model_output
 from classes.exception_types import PromptTooLong
