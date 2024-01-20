@@ -19,6 +19,7 @@ class UpdateModel(BaseModel):
     index_name: str
     id: str
     data: str
+    header: str
 
 class UpsertImptInfo(BaseModel):
     data: List = [
