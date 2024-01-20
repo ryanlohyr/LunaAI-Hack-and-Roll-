@@ -20,7 +20,7 @@ mounts:
     source_path: uploads
 
 # The size of the persistent disk of the application (in MB).
-disk: 2048
+disk: 4096
 
 # dependencies: 
 #   python3: # Specify one Python 3 package per line.
@@ -33,3 +33,6 @@ hooks:
 web:
   commands: 
     start: "python3 -m uvicorn app:app --reload"
+  # locations:
+  #   "/metal":
+  #         root: "app_subdir/build"
