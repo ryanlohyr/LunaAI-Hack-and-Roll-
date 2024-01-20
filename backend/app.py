@@ -86,36 +86,73 @@ def query(query: Query):
 
 @app.get("/get-sample-call-logs")
 def get_sample_call_logs():
+    # 1 object represents 1 call
     return [
         {
-            "metadata": [
+            "metadata": [ # 1 object represents 1 message in the call
                 {
                     "id": "1",
                     "role": "system",
                     "content": "xyz_1"
-                }
-            ]
-        },
-        {
-            "metadata": [
+                },
                 {
                     "id": "2",
                     "role": "user",
                     "content": "xyz_2"
-                }
-            ]
-        },
-        {
-            "metadata": [
+                },
                 {
                     "id": "3",
                     "role": "system",
                     "content": "xyz_3"
+                },
+                {
+                    "id": "4",
+                    "role": "user",
+                    "content": "xyz_4"
                 }
             ]
         },
         {
-            "metadata": [
+            "metadata": [ # 1 object represents 1 message in the call
+                {
+                    "id": "1",
+                    "role": "system",
+                    "content": "xyz_1"
+                },
+                {
+                    "id": "2",
+                    "role": "user",
+                    "content": "xyz_2"
+                },
+                {
+                    "id": "3",
+                    "role": "system",
+                    "content": "xyz_3"
+                },
+                {
+                    "id": "4",
+                    "role": "user",
+                    "content": "xyz_4"
+                }
+            ]
+        },
+        {
+            "metadata": [ # 1 object represents 1 message in the call
+                {
+                    "id": "1",
+                    "role": "system",
+                    "content": "xyz_1"
+                },
+                {
+                    "id": "2",
+                    "role": "user",
+                    "content": "xyz_2"
+                },
+                {
+                    "id": "3",
+                    "role": "system",
+                    "content": "xyz_3"
+                },
                 {
                     "id": "4",
                     "role": "user",
