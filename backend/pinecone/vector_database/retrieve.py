@@ -3,12 +3,14 @@ import openai
 from configs.models import (
     EMBEDDING_MODEL,
     FINE_TUNE_BASE_MODEL,
-    GPT_4
+    GPT_4,
     # generate_natural_lang_boilerplate_start,
     # generate_query_boilerplate_start,
 )
-from utils.calculations import TokenBuffer
+
+# from utils.calculations import TokenBuffer
 from vector_database.index import get_default_index, get_all_indexes
+
 
 def get_context(prompt: str, model_name=GPT_4):
     full_embedding = openai.Embedding.create(input=[prompt], engine=EMBEDDING_MODEL)
@@ -30,15 +32,15 @@ def get_context(prompt: str, model_name=GPT_4):
     outputs = []
 
     for i in indexes:
-        outputs.append(i.query(
-            vector=vectorized_prompt,
-            top_k=3,
-            include_metadata=True
-    ))
+        outputs.append(
+            i.query(vector=vectorized_prompt, top_k=3, include_metadata=True)
+        )
 
-    outputs.sort(key=lambda x: x["matches"][0]['score'], reverse=True)
+    outputs.sort(key=lambda x: x["matches"][0]["score"], reverse=True)
 
-    top_3_content = '\n\n'.join([x["metadata"]["content"] for x in outputs[0]["matches"]])
+    top_3_content = "\n\n".join(
+        [x["metadata"]["content"] for x in outputs[0]["matches"]]
+    )
     # print(top_3_content)
     return top_3_content
 
