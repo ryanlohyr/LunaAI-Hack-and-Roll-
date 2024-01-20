@@ -106,7 +106,23 @@ def upsert_sample_data():
 
 
 @app.post("/query-data")
-def query(query: Query):
+def query(query: Query, id: str, conversation: [{"user": str, "content": str}]):
+    input = []
+
+    for log in conversation:
+        input.append({
+            "id": id,
+            "content": log.content,
+            "metadata": {
+                "content": log.content
+            }
+        })
+
+    upsert_vectors(input, CALL_LOGS)
+
+    print("call logs upserted successfully")
+    print(input)
+
     return get_context(query.question)
 
 
