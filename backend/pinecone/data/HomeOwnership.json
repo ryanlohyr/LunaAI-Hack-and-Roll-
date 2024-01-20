@@ -3,7 +3,7 @@
     "id": "1",
     "content": "Consider your financial situation carefully as you establish your home. When it comes to borrowing, make prudent decisions by comparing HDB loans and bank loans. It's important to maintain an emergency fund and use your Ordinary Account (OA) savings wisely. Setting aside OA savings as an emergency fund can help you better prepare for retirement. For instance, you can retain $20,000 in your OA savings at the time of home purchase to cover monthly housing instalments during emergencies. Additionally, consider using cash instead of OA savings to pay for your housing loan, as any unused OA savings will contribute to your retirement fund. Be aware of the limits on OA savings that can be used for your property. You can use the housing usage calculator to estimate the allowable amount.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Things to consider</h4><h4>Planning for your dream home</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Things to consider</h4><h4>Planning for your dream home</h4>",
       "content": "Consider your financial situation carefully as you establish your home. When it comes to borrowing, make prudent decisions by comparing HDB loans and bank loans. It's important to maintain an emergency fund and use your Ordinary Account (OA) savings wisely. Setting aside OA savings as an emergency fund can help you better prepare for retirement. For instance, you can retain $20,000 in your OA savings at the time of home purchase to cover monthly housing instalments during emergencies. Additionally, consider using cash instead of OA savings to pay for your housing loan, as any unused OA savings will contribute to your retirement fund. Be aware of the limits on OA savings that can be used for your property. You can use the housing usage calculator to estimate the allowable amount."
     }
   },
@@ -11,7 +11,7 @@
     "id": "2",
     "content": "Your OA savings can be used to buy a HDB flat, or buy or build private and residential properties in Singapore. OA savings can also be used for downpayment and housing loan taken for the property purchase, stamp and legal fees, loan taken for the construction of your house and the purchase of vacant land (for private properties only), as well as Home Protection Scheme premiums (for HDB flats only).",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>What can you use your OA savings for when buying a home?</h4><h4>ELIGIBILITY</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>What can you use your OA savings for when buying a home?</h4><h4>ELIGIBILITY</h4>",
       "content": "Your OA savings can be used to buy a HDB flat, or buy or build private and residential properties in Singapore. OA savings can also be used for downpayment and housing loan taken for the property purchase, stamp and legal fees, loan taken for the construction of your house and the purchase of vacant land (for private properties only), as well as Home Protection Scheme premiums (for HDB flats only)."
     }
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "content": "While your OA savings can help you with your housing payments, remember that your CPF savings are for your future retirement needs! Use a mix of cash and your OA savings for your housing payments, so that you can keep some monies in your OA to earn attractive interest rates. Your OA savings can also act as a safety net for your housing payments. Therefore, it is important to find a balance between using your cash and OA savings for your housing payments!",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Balance your use of OA savings with cash</h4><h4>tips</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Balance your use of OA savings with cash</h4><h4>tips</h4>",
       "content": "While your OA savings can help you with your housing payments, remember that your CPF savings are for your future retirement needs! Use a mix of cash and your OA savings for your housing payments, so that you can keep some monies in your OA to earn attractive interest rates. Your OA savings can also act as a safety net for your housing payments. Therefore, it is important to find a balance between using your cash and OA savings for your housing payments!"
     }
   },
@@ -27,7 +27,7 @@
     "id": "4",
     "content": "You can start, adjust, and stop your OA savings for your housing needs such as monthly instalment, and use OA savings to make partial or full capital repayment. If you’ve bought a HDB with HDB loan, please approach HDB to start and adjust your OA usage.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Make changes to your OA usage</h4><h4>WAYS TO MANAGE</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Make changes to your OA usage</h4><h4>WAYS TO MANAGE</h4>",
       "content": "You can start, adjust, and stop your OA savings for your housing needs such as monthly instalment, and use OA savings to make partial or full capital repayment. If you’ve bought a HDB with HDB loan, please approach HDB to start and adjust your OA usage."
     }
   },
@@ -35,7 +35,7 @@
     "id": "5",
     "content": "CPF is meant for your retirement needs. When you used your CPF savings for your property, your retirement savings is reduced. Hence, when you sell your property, you will need to refund the amount that you have used plus the interest accrued on this amount. This is to restore your retirement savings. If you have pledged the property to make up your retirement sum, you will also need to refund the pledged amount.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>FEATURES</h4><h4>Amount to refund when selling your property</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>FEATURES</h4><h4>Amount to refund when selling your property</h4>",
       "content": "CPF is meant for your retirement needs. When you used your CPF savings for your property, your retirement savings is reduced. Hence, when you sell your property, you will need to refund the amount that you have used plus the interest accrued on this amount. This is to restore your retirement savings. If you have pledged the property to make up your retirement sum, you will also need to refund the pledged amount."
     }
   },
@@ -43,7 +43,7 @@
     "id": "6",
     "content": "The earlier you make a voluntary refund, the more interest you will earn to boost your CPF savings for retirement. In addition, you may receive more cash proceeds when you sell your property as you will need to refund lesser to your CPF account.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>voluntary refund</h4><h4>Why should you make a voluntary refund when you are not selling your property?</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>voluntary refund</h4><h4>Why should you make a voluntary refund when you are not selling your property?</h4>",
       "content": "The earlier you make a voluntary refund, the more interest you will earn to boost your CPF savings for retirement. In addition, you may receive more cash proceeds when you sell your property as you will need to refund lesser to your CPF account."
     }
   },
@@ -51,7 +51,7 @@
     "id": "7",
     "content": "If you have already used your Ordinary Account (OA) savings for your property, you can check your latest CPF savings usage and usage limit on your Home ownership dashboard. If you are planning to buy a property, the amount of CPF savings you can use depends on the following:",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>How much CPF savings can I use for my property purchase?</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>How much CPF savings can I use for my property purchase?</h4>",
       "content": "If you have already used your Ordinary Account (OA) savings for your property, you can check your latest CPF savings usage and usage limit on your Home ownership dashboard. If you are planning to buy a property, the amount of CPF savings you can use depends on the following:"
     }
   },
@@ -59,7 +59,7 @@
     "id": "8",
     "content": "You can check the amount to be refunded to your CPF account after selling your property by accessing your Home ownership dashboard on the CPF website.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>How do I check the amount to be refunded to my CPF account upon the sale of my property?</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>How do I check the amount to be refunded to my CPF account upon the sale of my property?</h4>",
       "content": "You can check the amount to be refunded to your CPF account after selling your property by accessing your Home ownership dashboard on the CPF website."
     }
   },
@@ -67,7 +67,7 @@
     "id": "9",
     "content": "It depends on whether you are using CPF savings or cash to service your monthly housing instalments. If you are using CPF savings to service your monthly instalments, You need to be insured under HPS and your eligibility for HPS coverage is subject to approval and you being in good health. If you are not eligible for an HPS cover due to serious pre-existing medical condition, you may still use your CPF savings to pay your monthly housing instalment. If you are using cash to service your monthly instalments, You are strongly encouraged to apply for an HPS cover if you are an owner of the flat and do not have adequate financial protection for your share of outstanding housing loan. Your eligibility for HPS coverage is subject to approval and you being in good health. ",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Do I need to be insured under Home Protection Scheme?/h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Do I need to be insured under Home Protection Scheme?/h4>",
       "content": "It depends on whether you are using CPF savings or cash to service your monthly housing instalments. If you are using CPF savings to service your monthly instalments, You need to be insured under HPS and your eligibility for HPS coverage is subject to approval and you being in good health. If you are not eligible for an HPS cover due to serious pre-existing medical condition, you may still use your CPF savings to pay your monthly housing instalment. If you are using cash to service your monthly instalments, You are strongly encouraged to apply for an HPS cover if you are an owner of the flat and do not have adequate financial protection for your share of outstanding housing loan. Your eligibility for HPS coverage is subject to approval and you being in good health. "
     }
   },
@@ -75,7 +75,7 @@
     "id": "10",
     "content": "Certainly, you can continue using your Ordinary Account (OA) savings to pay for your housing loan after you turn 55. However, when you reach your 55th birthday, a Retirement Account (RA) will be created for you, and savings up to your Full Retirement Sum from your Special Account and OA will be transferred to your RA. The savings that you have applied to reserve in your OA before your 55th birthday will not be transferred to your RA. Therefore, you can continue using this reserved amount to pay your housing loan after turning 55 years old. To reserve your OA savings, please log on using your Singpass to myCPF Online Services > Click on “My Requests” > Select “Retirement (e.g., Retirement Sum & Age 55 applications)” > Select “Decide on my CPF options for members reaching 55”. Additionally, you can still use your new CPF contributions to your Ordinary Account for paying your housing loan if you continue working after the age of 55. It's important to note that when you start your monthly payouts under CPF Life or the Retirement Sum Scheme, your reserved OA savings will be transferred to your RA if you have not set aside your Full Retirement Sum. This transfer increases your RA savings and will enhance your monthly payouts.",
     "metadata": {
-      "metadata": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Can I use my CPF savings to pay for my housing loan after I turn 55?</h4>",
+      "header": "<h3>Using your CPF to buy a property under the Housing Scheme</h3><h4>Can I use my CPF savings to pay for my housing loan after I turn 55?</h4>",
       "content": "Certainly, you can continue using your Ordinary Account (OA) savings to pay for your housing loan after you turn 55. However, when you reach your 55th birthday, a Retirement Account (RA) will be created for you, and savings up to your Full Retirement Sum from your Special Account and OA will be transferred to your RA. The savings that you have applied to reserve in your OA before your 55th birthday will not be transferred to your RA. Therefore, you can continue using this reserved amount to pay your housing loan after turning 55 years old. To reserve your OA savings, please log on using your Singpass to myCPF Online Services > Click on “My Requests” > Select “Retirement (e.g., Retirement Sum & Age 55 applications)” > Select “Decide on my CPF options for members reaching 55”. Additionally, you can still use your new CPF contributions to your Ordinary Account for paying your housing loan if you continue working after the age of 55. It's important to note that when you start your monthly payouts under CPF Life or the Retirement Sum Scheme, your reserved OA savings will be transferred to your RA if you have not set aside your Full Retirement Sum. This transfer increases your RA savings and will enhance your monthly payouts."
     }
   },
@@ -83,7 +83,7 @@
     "id": "11",
     "content": "Safeguard the roof over your head with Home Protection Scheme (HPS), a mortgage-reducing insurance that protects you and your loved ones from losing your Housing and Development Board (HDB) flat in the event of death, terminal illness, or total permanent disability.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Safeguard your home with the Home Protection Scheme.</h4><h4>HOME OWNERSHIP</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Safeguard your home with the Home Protection Scheme.</h4><h4>HOME OWNERSHIP</h4>",
       "content": "Safeguard the roof over your head with Home Protection Scheme (HPS), a mortgage-reducing insurance that protects you and your loved ones from losing your Housing and Development Board (HDB) flat in the event of death, terminal illness, or total permanent disability."
     }
   },
@@ -91,7 +91,7 @@
     "id": "12",
     "content": "HPS is for CPF members who own an HDB flat and are paying their monthly housing instalments using CPF savings or cash. It insures members until he/she turns 65, or until the housing loans are paid up.Should your housing loan only be paid up after you turn 65, do consider getting private insurance coverage after your HPS cover ends at 65.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Safeguard your home with the Home Protection Scheme</h4><h4>Understanding the HPS</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Safeguard your home with the Home Protection Scheme</h4><h4>Understanding the HPS</h4>",
       "content": "HPS is for CPF members who own an HDB flat and are paying their monthly housing instalments using CPF savings or cash. It insures members until he/she turns 65, or until the housing loans are paid up.Should your housing loan only be paid up after you turn 65, do consider getting private insurance coverage after your HPS cover ends at 65."
     }
   },
@@ -99,7 +99,7 @@
     "id": "13",
     "content": "HPS does not cover private residential properties, such as executive condominiums (ECs) or privatised Housing and Urban Development Company (HUDC) flats. If you’ve an outstanding housing loan for a private property, consider purchasing private insurance coverage.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You own an HDB flat</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You own an HDB flat</h4>",
       "content": "HPS does not cover private residential properties, such as executive condominiums (ECs) or privatised Housing and Urban Development Company (HUDC) flats. If you’ve an outstanding housing loan for a private property, consider purchasing private insurance coverage."
     }
   },
@@ -107,7 +107,7 @@
     "id": "14",
     "content": "If you’re using CPF savings to pay your monthly housing instalments, HPS is required. If you’re using cash, we strongly encourage you to apply.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You’re using CPF savings or cash to pay a housing loan</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You’re using CPF savings or cash to pay a housing loan</h4>",
       "content": "If you’re using CPF savings to pay your monthly housing instalments, HPS is required. If you’re using cash, we strongly encourage you to apply."
     }
   },
@@ -115,7 +115,7 @@
     "id": "15",
     "content": "Your eligibility for an HPS cover is subject to approval and you being in good health. You may be required to undergo a medical examination. We may also request a copy of the medical report from your attending doctor.If you’re not eligible for HPS cover, you can still use your CPF savings to pay your monthly housing instalments.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You’re in good health</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Understanding the HPS</h4><h4>You’re in good health</h4>",
       "content": "Your eligibility for an HPS cover is subject to approval and you being in good health. You may be required to undergo a medical examination. We may also request a copy of the medical report from your attending doctor.If you’re not eligible for HPS cover, you can still use your CPF savings to pay your monthly housing instalments."
     }
   },
@@ -123,7 +123,7 @@
     "id": "16",
     "content": "Outstanding Mortgage Settlement: HPS provides assurance that in the event of a claim, it will settle the outstanding housing loan, up to the insured sum, directly with HDB or the mortgagee. This ensures that your home loan is taken care of, providing financial security to your family. Affordable Premiums: HPS offers insurance coverage with some of the lowest premiums available in the market, making it a cost-effective way to protect your home and loved ones. Payment Convenience: You can easily pay your annual premiums using your CPF savings. The premiums are automatically deducted from your Ordinary Account (OA), simplifying the payment process and ensuring that your coverage remains active. HPS is designed to provide homeowners with peace of mind by safeguarding their homes and loved ones in the face of unforeseen circumstances.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Protect you and your family against losing your home</h4><h4>BENEFITS</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Protect you and your family against losing your home</h4><h4>BENEFITS</h4>",
       "content": "Outstanding Mortgage Settlement: HPS provides assurance that in the event of a claim, it will settle the outstanding housing loan, up to the insured sum, directly with HDB or the mortgagee. This ensures that your home loan is taken care of, providing financial security to your family. Affordable Premiums: HPS offers insurance coverage with some of the lowest premiums available in the market, making it a cost-effective way to protect your home and loved ones. Payment Convenience: You can easily pay your annual premiums using your CPF savings. The premiums are automatically deducted from your Ordinary Account (OA), simplifying the payment process and ensuring that your coverage remains active. HPS is designed to provide homeowners with peace of mind by safeguarding their homes and loved ones in the face of unforeseen circumstances."
     }
   },
@@ -131,7 +131,7 @@
     "id": "17",
     "content": "Fully and truthfully declare your health condition. Any HPS cover issued based on false or misleading information can be voided at any time, and such insurance claims will be denied. In such situations, any premiums paid will not be refunded. Deciding the right share of cover to apply for. Your share of the HPS cover should at least match the proportion of the monthly housing instalment which is payable with your CPF savings and/or cash. The total share of cover per household should add up to at least 100%. Also, you and your co-owner(s) can each choose to insure for a higher share of cover, for up to 100% per owner. In the event of a claim, HPS will settle the outstanding housing loan up to the insured sum, based on the share of cover applied. As a higher share of cover results in a higher annual premium being deducted from your OA, be sure to consider your future retirement needs when deciding the share of cover. Use our HPS Premium Calculator to estimate your HPS premium, based on your decided share of cover. Stay on top of your annual premium payments. Ensure that you’ve enough funds in your OA for premium payments on your policy anniversary month. Keep in mind that your cover could lapse if you fall behind on your premium payments. You’ll need to apply to join HPS again with your eligibility subject to your health condition at the point of reapplication.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>What to know before joining the scheme</h4><h4>THINGS TO NOTE</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>What to know before joining the scheme</h4><h4>THINGS TO NOTE</h4>",
       "content": "Fully and truthfully declare your health condition. Any HPS cover issued based on false or misleading information can be voided at any time, and such insurance claims will be denied. In such situations, any premiums paid will not be refunded. Deciding the right share of cover to apply for. Your share of the HPS cover should at least match the proportion of the monthly housing instalment which is payable with your CPF savings and/or cash. The total share of cover per household should add up to at least 100%. Also, you and your co-owner(s) can each choose to insure for a higher share of cover, for up to 100% per owner. In the event of a claim, HPS will settle the outstanding housing loan up to the insured sum, based on the share of cover applied. As a higher share of cover results in a higher annual premium being deducted from your OA, be sure to consider your future retirement needs when deciding the share of cover. Use our HPS Premium Calculator to estimate your HPS premium, based on your decided share of cover. Stay on top of your annual premium payments. Ensure that you’ve enough funds in your OA for premium payments on your policy anniversary month. Keep in mind that your cover could lapse if you fall behind on your premium payments. You’ll need to apply to join HPS again with your eligibility subject to your health condition at the point of reapplication."
     }
   },
@@ -139,7 +139,7 @@
     "id": "18",
     "content": "Using CPF savings for housing instalments. If you’re taking an HDB loan, you can apply for HPS the same time you apply to withdraw your CPF savings for monthly housing instalments through HDB. If you’re taking a bank loan, you can submit an online application to apply for HPS.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>APPLICATION</h4><h4>Using CPF savings for housing instalments</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>APPLICATION</h4><h4>Using CPF savings for housing instalments</h4>",
       "content": "Using CPF savings for housing instalments. If you’re taking an HDB loan, you can apply for HPS the same time you apply to withdraw your CPF savings for monthly housing instalments through HDB. If you’re taking a bank loan, you can submit an online application to apply for HPS."
     }
   },
@@ -147,7 +147,7 @@
     "id": "19",
     "content": "You can submit an online application to apply for HPS.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Applying for HPS</h4><h4>Not using CPF savings for housing instalments</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Applying for HPS</h4><h4>Not using CPF savings for housing instalments</h4>",
       "content": "You can submit an online application to apply for HPS."
     }
   },
@@ -155,7 +155,7 @@
     "id": "20",
     "content": "Pay your HPS premium, Your annual premium will be automatically deducted from your OA. We’ll inform you to top up your OA if the balance is not enough to pay the premium. Other payment options,Alternatively, family members (i.e. your spouse/parent/child/sibling) who co-own the flat with you, can authorise us to use their OA savings to pay your HPS premium shortfall.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Making premium payments</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Making premium payments</h4>",
       "content": "Pay your HPS premium, Your annual premium will be automatically deducted from your OA. We’ll inform you to top up your OA if the balance is not enough to pay the premium. Other payment options,Alternatively, family members (i.e. your spouse/parent/child/sibling) who co-own the flat with you, can authorise us to use their OA savings to pay your HPS premium shortfall."
     }
   },
@@ -163,7 +163,7 @@
     "id": "21",
     "content": "**Changes in Loan Repayment Period or Loan Amount:** If you've used your CPF savings to repay the loan (for both HDB and bank loans) and there is a reduction in the loan quantum and/or repayment period, your HPS cover will be automatically adjusted without the need for an application. However, if there is an increase in the loan quantum and/or repayment, you will receive a notification for HPS cover adjustment.\n**Refinancing:** If you have refinanced your housing loan and you are already covered under HPS, there is no need to submit an application. Your HPS cover will be automatically adjusted to match the new loan terms.\n**Taking a Bank Loan:** If you are taking a bank loan and you have used cash to repay the loan or have changed the loan repayment period, you can submit an online application to adjust your HPS cover. Ensure that the new coverage amount is sufficient to cover your share of the outstanding loan in the event of a claim.\n**Ending HPS Cover:** Your HPS cover will end in the following situations:\n - When you sell your HDB flat.\n - Upon fully redeeming your housing loan.\n - If you obtain a new HPS insurance cover for your new flat.\n - If you've used your CPF savings to redeem the loan (for both HDB and bank loans), your HPS cover will be automatically terminated.\n - If you are taking a bank loan and have used cash to redeem the loan, you can apply to end your HPS cover.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Managing your cover</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Managing your cover</h4>",
       "content": "**Changes in Loan Repayment Period or Loan Amount:** If you've used your CPF savings to repay the loan (for both HDB and bank loans) and there is a reduction in the loan quantum and/or repayment period, your HPS cover will be automatically adjusted without the need for an application. However, if there is an increase in the loan quantum and/or repayment, you will receive a notification for HPS cover adjustment.\n**Refinancing:** If you have refinanced your housing loan and you are already covered under HPS, there is no need to submit an application. Your HPS cover will be automatically adjusted to match the new loan terms.\n**Taking a Bank Loan:** If you are taking a bank loan and you have used cash to repay the loan or have changed the loan repayment period, you can submit an online application to adjust your HPS cover. Ensure that the new coverage amount is sufficient to cover your share of the outstanding loan in the event of a claim.\n**Ending HPS Cover:** Your HPS cover will end in the following situations:\n - When you sell your HDB flat.\n - Upon fully redeeming your housing loan.\n - If you obtain a new HPS insurance cover for your new flat.\n - If you've used your CPF savings to redeem the loan (for both HDB and bank loans), your HPS cover will be automatically terminated.\n - If you are taking a bank loan and have used cash to redeem the loan, you can apply to end your HPS cover."
     }
   },
@@ -171,7 +171,7 @@
     "id": "22",
     "content": "Convert from a Single Premium to an Annual Premium cover. Your Single Premium cover will insure you until you turn 55 to 60 years old. Find out when it will be converted to an Annual Premium HPS cover. You'll be able to continue enjoying insurance protection and use your CPF savings for monthly housing instalments.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Switching cover</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Switching cover</h4>",
       "content": "Convert from a Single Premium to an Annual Premium cover. Your Single Premium cover will insure you until you turn 55 to 60 years old. Find out when it will be converted to an Annual Premium HPS cover. You'll be able to continue enjoying insurance protection and use your CPF savings for monthly housing instalments."
     }
   },
@@ -179,7 +179,7 @@
     "id": "23",
     "content": "**Apply with Equivalent Life Insurance:**\nYou can apply for HPS exemption if you have the following insurance policies:\n- Whole Life\n- Term Life\n- Endowments\n- Life Riders (must be attached to a basic policy)\n- Mortgage Reducing Term Assurance (MRTA) / Decreasing Term Rider\nThese policies must cover your outstanding housing loan up to the full term of the loan or until you turn 65, whichever is earlier.\n\n**Apply for HPS First Before Getting Exemption:**\nDoing so will avoid any delay in commencing the use of your CPF savings for your monthly housing instalments.\n\nYou can apply for HPS exemption after you have obtained legal ownership of the flat and the housing loan for the property has been disbursed.\n\nIf you have not previously used your CPF savings for your HDB flat at the time of purchase or for your monthly housing instalment, please fill out [this application form](link-to-form) to start using your CPF savings for your HDB flat.\n\nPlease approach the insurer(s) of your pr",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Getting exemption from HPS</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Getting exemption from HPS</h4>",
       "content": "**Apply with Equivalent Life Insurance:**\nYou can apply for HPS exemption if you have the following insurance policies:\n- Whole Life\n- Term Life\n- Endowments\n- Life Riders (must be attached to a basic policy)\n- Mortgage Reducing Term Assurance (MRTA) / Decreasing Term Rider\nThese policies must cover your outstanding housing loan up to the full term of the loan or until you turn 65, whichever is earlier.\n\n**Apply for HPS First Before Getting Exemption:**\nDoing so will avoid any delay in commencing the use of your CPF savings for your monthly housing instalments.\n\nYou can apply for HPS exemption after you have obtained legal ownership of the flat and the housing loan for the property has been disbursed.\n\nIf you have not previously used your CPF savings for your HDB flat at the time of purchase or for your monthly housing instalment, please fill out [this application form](link-to-form) to start using your CPF savings for your HDB flat.\n\nPlease approach the insurer(s) of your pr"
     }
   },
@@ -187,7 +187,7 @@
     "id": "24",
     "content": "You can make an HPS claim in the event of death, terminal illness, or total permanent disability.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Making claims</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Managing your HPS coverage and payments</h4><h4>Making claims</h4>",
       "content": "You can make an HPS claim in the event of death, terminal illness, or total permanent disability."
     }
   },
@@ -195,7 +195,7 @@
     "id": "25",
     "content": "You can check your Home Protection Scheme (HPS) cover status, current sum assured, and the share of your Annual Premium HPS cover under “Protection against losing your home” in the Home ownership dashboard using your Singpass. You can also find comprehensive information regarding your HPS cover on the HPS certificate that was sent to you when your HPS cover was issued or adjusted. If you have an outstanding housing loan and you do not see the Protection against losing your home section in the Home ownership dashboard, it means that you are not insured under HPS. You are strongly encouraged to apply for an HPS cover online, using your Singpass, to protect you and your loved ones from losing your HDB flat in the event of death, terminal illness, or total permanent disability. Please note that you will be ineligible for a new HPS cover if: You are 65 years old and above, or Your previous application for HPS cover had been rejected due to your health condition.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Where can I check my current Home Protection Scheme cover details?</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Where can I check my current Home Protection Scheme cover details?</h4>",
       "content": "You can check your Home Protection Scheme (HPS) cover status, current sum assured, and the share of your Annual Premium HPS cover under “Protection against losing your home” in the Home ownership dashboard using your Singpass. You can also find comprehensive information regarding your HPS cover on the HPS certificate that was sent to you when your HPS cover was issued or adjusted. If you have an outstanding housing loan and you do not see the Protection against losing your home section in the Home ownership dashboard, it means that you are not insured under HPS. You are strongly encouraged to apply for an HPS cover online, using your Singpass, to protect you and your loved ones from losing your HDB flat in the event of death, terminal illness, or total permanent disability. Please note that you will be ineligible for a new HPS cover if: You are 65 years old and above, or Your previous application for HPS cover had been rejected due to your health condition."
     }
   },
@@ -203,7 +203,7 @@
     "id": "26",
     "content": "To apply for HPS exemption, you need to have equivalent life insurance policies that cover your outstanding housing loan up to the full term of the loan or until you turn 65, whichever is earlier.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>Applying for HPS exemption</h4><h4>Eligibility requirements</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>Applying for HPS exemption</h4><h4>Eligibility requirements</h4>",
       "content": "To apply for HPS exemption, you need to have equivalent life insurance policies that cover your outstanding housing loan up to the full term of the loan or until you turn 65, whichever is earlier."
     }
   },
@@ -211,7 +211,7 @@
     "id": "27",
     "content": "When applying for your Home Protection Scheme (HPS) cover, you need to fully disclose all information regarding your health condition, including:\n\nAll your past and current illnesses,\nAny surgery/treatment/medical test that you had previously undergone or will be undergoing, and\nAny physical or mental impairment.\nIf you are unsure about the relevance of the information, you are advised to still disclose it. This includes any medical information that you may have provided to the officer during your appointments at HDB/financial institution/solicitor’s office, but which you did not include in your health declaration.\n\nPlease note that we may arrange a medical examination for you and/or request a copy of the medical report on your health condition to assess your eligibility for an HPS cover.\n\nIf you have an up-to-date medical report, you can submit a copy to us as a supporting document. Please note that the cost of obtaining the medical report will be borne by you.",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>What do I need to declare when I apply for my Home Protection Scheme cover?</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>What do I need to declare when I apply for my Home Protection Scheme cover?</h4>",
       "content": "When applying for your Home Protection Scheme (HPS) cover, you need to fully disclose all information regarding your health condition, including:\n\nAll your past and current illnesses,\nAny surgery/treatment/medical test that you had previously undergone or will be undergoing, and\nAny physical or mental impairment.\nIf you are unsure about the relevance of the information, you are advised to still disclose it. This includes any medical information that you may have provided to the officer during your appointments at HDB/financial institution/solicitor’s office, but which you did not include in your health declaration.\n\nPlease note that we may arrange a medical examination for you and/or request a copy of the medical report on your health condition to assess your eligibility for an HPS cover.\n\nIf you have an up-to-date medical report, you can submit a copy to us as a supporting document. Please note that the cost of obtaining the medical report will be borne by you."
     }
   },
@@ -219,7 +219,7 @@
     "id": "28",
     "content": "We will send you a Home Protection Scheme (HPS) certificate generally within one to two weeks after your HPS cover has commenced and you have paid the premium. The HPS certificate will include information such as the amount you are insured for, your share of the cover, the policy start and end dates, the address of your insured flat, and your annual premium.You can also view your HPS coverage status under “Protection against losing your home” via the Home ownership dashboard. ",
     "metadata": {
-      "metadata": "<h3>Protecting against losing your home</h3><h4>How will I be kept informed on my Home Protection Scheme cover details?</h4>",
+      "header": "<h3>Protecting against losing your home</h3><h4>How will I be kept informed on my Home Protection Scheme cover details?</h4>",
       "content": "We will send you a Home Protection Scheme (HPS) certificate generally within one to two weeks after your HPS cover has commenced and you have paid the premium. The HPS certificate will include information such as the amount you are insured for, your share of the cover, the policy start and end dates, the address of your insured flat, and your annual premium.You can also view your HPS coverage status under “Protection against losing your home” via the Home ownership dashboard. "
     }
   }
