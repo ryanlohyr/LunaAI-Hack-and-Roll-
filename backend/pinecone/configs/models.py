@@ -1,7 +1,7 @@
 import openai
 
 EMBEDDING_MODEL = "text-embedding-ada-002"
-GPT_4 = "gpt-4"
+GPT_4 = "gpt-3.5-turbo"
 FINE_TUNE_BASE_MODEL = "davinci"
 
 EMBEDDING_TOKEN_LIMIT = 8192

@@ -50,7 +50,7 @@ def read_root():
 # creating a new pinecone index (feed in index name as argument)
 @app.post("/create-index")
 def create_index(index: CreateIndex):
-    index.create_index(
+    pc.create_index(
         name=index.index_name,
         dimension=1536,  # standard for OpenAI Ada embedding
         metric="cosine",
@@ -158,6 +158,9 @@ def post_call_logs(call_logs): # ask ryan send id, content (string of all the ch
         })
 
     upsert_vectors(input, CALL_LOGS)
+
+    print("call logs upserted successfully")
+    print(input)
 
 
 ## LOGS SUMMARY GET
