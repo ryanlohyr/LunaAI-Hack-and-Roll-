@@ -23,7 +23,7 @@ from classes.app_types import CreateIndex, UpdateModel, Upsert, Query
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
-from configs.tables import INDEXES, INDEXES_TO_CREATE, CALL_LOGS
+from configs.tables import INDEXES, INDEXES_TO_CREATE, CALL_LOGS, PRESET_PROMPT
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
@@ -145,7 +145,18 @@ def update_vector(data: UpdateModel):
 
 @app.post("/post-call-logs")
 def post_call_logs(call_logs): # ask ryan send id, content (string of all the chat messages), metadata
-    upsert_vectors(call_logs, CALL_LOGS)
+    input = []
+
+    for log in call_logs:
+        input.append({
+            "id": f"{log.id}",
+            "content": log.content,
+            "metadata": {
+                "content": log.content
+            }
+        })
+
+    upsert_vectors(input, CALL_LOGS)
 
 
 # CALL LOGS GET
@@ -167,13 +178,21 @@ def get_logs_summary():
 # get preset prompt, return string
 @app.get("/preset-prompt")
 def get_preset_prompt():
-    return
+    return get_ids_from_query(PRESET_PROMPT)
 
 
 # update preset prompt
 @app.post("/preset-prompt")
-def post_preset_prompt():
-    return
+def post_preset_prompt(prompt):
+    input = {
+        "id": "1",
+        "content": prompt,
+        "metadata": {
+            "content": prompt
+        }
+    }
+
+    upsert_vectors(input, PRESET_PROMPT)
 
 
 ## IMPORTANT INFO GET POST
