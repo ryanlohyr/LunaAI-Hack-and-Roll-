@@ -129,8 +129,8 @@ def post_vector(index_name: str, data: Upsert):
     return
 
 @app.post("/post-call-logs")
-def post_call_logs():
-    return
+def post_call_logs(call_logs): # ask ryan send id, content (string of all the chat messages), metadata
+    upsert_vectors(call_logs, CALL_LOGS)
 
 
 ## LOGS SUMMARY GET
