@@ -17,7 +17,11 @@ const Page = () => {
 
   return (
     <div>
-      {logs && <Logs logs={logs}/>}
+      {logs ? (<Logs logs={logs}/>) : (
+        <div className='flex items-center justify-center h-40'>
+          <h1 className='text-gray-400'>Loading...</h1>
+        </div>
+      )}
     </div>
   )
 }

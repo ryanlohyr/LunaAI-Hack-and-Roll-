@@ -7,6 +7,7 @@ import { EditCancelButton } from '@/components/ui/edit-cancel-button';
 import { Input } from '@/components/ui/input';
 import { Vector } from '@/features/tuning/types/tuning.type';
 import { postImptInfo, postPresetPrompt } from '@/service/dashboard';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type Props = {
     presetPrompt: string;
@@ -14,6 +15,13 @@ type Props = {
     pendingActions: number;
     imptInfo: Vector[];
 }
+
+const HEADERS = [
+    "Healthcare Enquiry SG",
+    "Healthcare Enquiry Intl",
+    "CPF Others Enquiry SG",
+    "CPF Others Enquiry Intl",
+]
 
 const Dashboard = (props: Props) => {
     const [imptInfoData, setImptInfoData] = useState(props.imptInfo);
@@ -71,6 +79,13 @@ const Dashboard = (props: Props) => {
             });
           });
       };
+    // if (!props.logsSummary) {
+    //     return (
+    //         <div className='flex items-center justify-center h-54'>
+    //             <h1 className='text-gray-300'>Loading...</h1>
+    //         </div>
+    //     )
+    // }
 
   return (
     <div className='grid grid-cols-2 space-x-4'>
@@ -88,7 +103,10 @@ const Dashboard = (props: Props) => {
                     components={
                         <div>
                             <h1 className='font-bold text-lg'>Logs Summary</h1>
-                            <p className=''>{props.logsSummary}</p>
+                            <ScrollArea className='h-60'>
+                                <p className=''>{props.logsSummary}</p>
+                            </ScrollArea>
+                            
                         </div>
                     }
                 />
@@ -101,7 +119,7 @@ const Dashboard = (props: Props) => {
                         <div className='flex flex-col space-y-2'>
                             {imptInfoData.map((o) => (
                                 <div className='flex flex-row justify-between' key={o.metadata.header}>
-                                    <h1 className='font-bold text-md'>{o.metadata.header}</h1>
+                                    <h1 className='font-bold text-md'>{HEADERS[Number(o.id)-1]}</h1>
                                     <Input value={o.metadata.content} onChange={(e) => handleEditImpt(o.id, e.target.value)} className='max-w-[200px]' disabled={!isEditImpt}/>
                                 </div>
                             ))}
@@ -115,7 +133,7 @@ const Dashboard = (props: Props) => {
             components={
                 <div className='flex flex-col justify-start space-y-2'>
                     <h1 className='font-bold text-lg'>Preset Prompt</h1>
-                    <Textarea defaultValue={prompt} className='min-h-[400px]' disabled={!isEditPrompt}/>
+                    <Textarea value={prompt} className='min-h-[400px]' disabled={!isEditPrompt} onChange={(e)=>setPrompt(e.target.value)}/>
                     <EditCancelButton handleSubmit={() => hanldeSubmitPrompt()} isEdit={isEditPrompt} toggleEdit={() => setIsEditPrompt(prev => !prev)}/>
                 </div>
             }
