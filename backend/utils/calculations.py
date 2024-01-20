@@ -1,4 +1,4 @@
-from configs import (
+from configs.models import (
     FINE_TUNE_CONTEXT_LIMIT,
     FINE_TUNE_MODEL,
     GPT_3_dot_5,
