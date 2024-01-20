@@ -13,6 +13,9 @@ from vector_database.index import get_default_index, get_all_indexes
 
 
 def get_context(prompt: str, model_name=GPT_4):
+    if prompt is None:
+        return 
+    
     full_embedding = openai.Embedding.create(input=[prompt], engine=EMBEDDING_MODEL)
 
     vectorized_prompt = full_embedding["data"][0]["embedding"]
