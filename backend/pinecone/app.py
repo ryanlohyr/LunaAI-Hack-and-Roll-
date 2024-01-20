@@ -6,10 +6,9 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from vector_database.retrieve import get_context
-from vector_database.get_output import get_model_output
-from vector_database.index import get_ids_from_query, get_indexes_name
+# from vector_database.get_output import get_model_output
 from classes.exception_types import PromptTooLong
-from utils.calculations import count_tokens
+# from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
 from pinecone import Pinecone, PodSpec
 from classes.app_types import CreateIndex, Upsert, Query
@@ -84,67 +83,6 @@ def upsert_sample_data():
 @app.post("/query-data")
 def query(query: Query):
     return get_context(query.question)
-
-## VECTORS AND INDEX GET POST
-@app.get("/index")
-def get_all_index():
-    return get_indexes_name()
-
-@app.get("/index/{index_name}")
-def get_index(index_name):
-    print(index_name)
-    res = get_ids_from_query(index_name)['matches']
-    fields_to_include = ['id', 'metadata']
-    parsed = [{field: d[field] for field in fields_to_include} for d in res]
-    print(res)
-    return JSONResponse(content=parsed)
-
-# post vectors given id and data
-@app.post("/index/{index_name}")
-def post_vector(index_name):
-    return
-
-## LOGS SUMMARY GET
-# get logs summary,return string
-@app.get("/logs-summary")
-def get_logs_summary():
-    # call openai api on all logs
-    return
-
-## PRESET PROMPT GET POST
-# get preset prompt, return string
-@app.get("/preset-prompt")
-def get_preset_prompt():
-    return
-
-# update preset prompt
-@app.post("/preset-prompt")
-def post_preset_prompt():
-    return
-
-
-## IMPORTANT INFO GET POST
-# returns array of {header, content}
-@app.get("/impt-info")
-def get_impt_info():
-    return
-
-# update impt info, receives array of {header, content}
-@app.post("/impt-info")
-def post_impt_info():
-    return
-
-## PENDING ACTION GET
-# get pending actions, return number of entries in logs
-@app.get("/pending-actions")
-def get_pending_actions():
-    return "4"
-
-# CALL LOGS GET
-@app.get("/call-logs")
-def get_call_logs():
-    return
-
 
 @app.get("/get-sample-call-logs")
 def get_sample_call_logs():
