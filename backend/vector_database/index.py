@@ -8,7 +8,7 @@ load_dotenv()
 
 def get_index():
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-    index = pc.Index("hackandrolltest")
+    index = pc.Index("test-api")
 
     # if index_name not in pinecone.list_indexes():
     #     # if does not exist, create index

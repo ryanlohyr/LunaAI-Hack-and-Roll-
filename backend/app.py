@@ -12,59 +12,56 @@ from classes.exception_types import PromptTooLong
 # from src.classes.param_types import Input
 from utils.calculations import count_tokens
 from vector_database.db import upsert_vectors
+from pinecone import Pinecone, PodSpec
+from classes.app_types import CreateIndex, Upsert, Query
+import uvicorn
+from vector_database.index import get_index
+from vector_database.db import upsert_vectors
 
 logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 
 app = FastAPI()
-
+index = get_index()
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the FastAPI Microservice!"}
 
-# @app.get("/")
+# creating a new pinecone index (feed in index name as argument)
+@app.post("/create-index")
+def create_index(index: CreateIndex):
+    pc.create_index(
+        name=index.index_name,
+        dimension=1536,  # standard for OpenAI Ada embedding
+        metric="cosine",
+        spec=PodSpec(environment="us-west1-gcp", pod_type="p1.x1")
+    )
 
-# @app.exception_handler(PromptTooLong)
-# async def prompt_too_long_handler(request: Request, exc: PromptTooLong):
-#     return JSONResponse(
-#         status_code=400,
-#         content={"message": exc.value},
-#     )
+# upserting data into pinecone
+@app.post("/upsert-vectors")
+def upsert(data: Upsert):
+    return upsert_vectors(data)
 
+import logging
+import json
 
-# @app.post("/get_prompt")
-# async def get_prompt(input: Input):
-#     prompt_token_length = count_tokens(text=input.prompt, model_name=EMBEDDING_MODEL)[
-#         "n_tokens"
-#     ]
-#     if prompt_token_length > EMBEDDING_TOKEN_LIMIT:
-#         raise PromptTooLong(
-#             token_limit=EMBEDDING_TOKEN_LIMIT, prompt_token_length=prompt_token_length
-#         )
+def read_json(file):
+    try:
+        print('Reading from input')
+        with open(file, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        raise e
 
-#     try:
-#         return await get_completion(input=input)
+@app.post("/upsert-sample-data")
+def upsert_sample_data():
+    return_dict = read_json("./Overview.json")
+    return upsert_vectors(return_dict)
 
-#     except Exception as e:
-#         raise e
+@app.post("/query-data")
+def query(query: Query):
+    return get_context(query.question)
 
-
-# @app.post("/get_completion")
-# async def get_completion(input: Input):
-#     try:
-#         prompt_with_contexts = get_context(
-#             prompt=input.prompt, is_sql="SQL" in input.prompt, model_name=GPT_3_dot_5
-#         )
-#         output = get_model_output(
-#             prompt_with_contexts, is_sql="SQL" in input.prompt, model_name=GPT_3_dot_5
-#         )
-#         return output
-
-#     except Exception as e:
-#         raise e
-
-
-# @app.post("/refresh_vector_db")  # refresh Pinecone by upserting new vectors
-# def update_db():
-#     upsert_vectors(topics=topic_list)
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
