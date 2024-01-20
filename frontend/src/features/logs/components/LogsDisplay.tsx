@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { LogsData } from '../types/data'
 import LogsChatBubble from './LogsChatBubble';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { LogType } from '../types/logs.type';
 
 type Props = {
-    log: LogsData | null;
+    log: LogType | null;
 }
 
 const LogsDisplay = ({ log }: Props) => {
@@ -42,7 +42,7 @@ const LogsDisplay = ({ log }: Props) => {
                 >
                     {log.metadata.map((o, i) => {
                         return (
-                            <LogsChatBubble role={o.role} content={o.content} key={i}/>
+                            <LogsChatBubble content={o.content} key={i} index={i}/>
                         )
                     })}
 

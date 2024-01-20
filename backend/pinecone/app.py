@@ -5,10 +5,11 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from src.gpt import generateSummary, generateSummaryTwo
+
 
 from vector_database.retrieve import get_context
 
-# from vector_database.get_output import get_model_output
 from vector_database.index import (
     get_ids_from_query,
     get_indexes_name,
@@ -17,9 +18,16 @@ from vector_database.index import (
 from classes.exception_types import PromptTooLong
 
 # from utils.calculations import count_tokens
-from vector_database.db import upsert_vectors
+from vector_database.db import upsert_vectors, get_embeddings
 from pinecone import Pinecone, PodSpec
-from classes.app_types import CreateIndex, UpdateModel, Upsert, Query, UpsertImptInfo
+from classes.app_types import (
+    CreateIndex,
+    UpdateModel,
+    Upsert,
+    Query,
+    UpsertImptInfo,
+    PresetPrompt,
+)
 import uvicorn
 from vector_database.index import get_default_index
 from vector_database.db import upsert_vectors
@@ -98,6 +106,7 @@ def upsert_sample_data():
         "./data/Overview.json",
         "./data/CpfContributionEmployee.json",
         "./data/CpfContributionSelfEmployed.json",
+        "./data/ImportantInfo.json",
     ]
 
     for i in range(len(file_paths)):
@@ -106,24 +115,32 @@ def upsert_sample_data():
 
 
 @app.post("/query-data")
-def query(query: Query, id: str, conversation: [{"user": str, "content": str}]):
+def query(query: Query):
     input = []
+    # print(query)
+    print(query)
 
-    for log in conversation:
-        input.append({
-            "id": id,
-            "content": log.content,
-            "metadata": {
-                "content": log.content
+    hist = [log.content for log in query.conversation]
+
+    hist = [{"content": log.content} for log in query.conversation]
+    answer = get_context(query.question)
+    hist.append({"content": answer})
+
+    upsert_vectors(
+        [
+            {
+                "id": query.id,
+                "content": "*".join([x["content"] for x in hist]),
+                "metadata": {"content": "*".join([x["content"] for x in hist])},
             }
-        })
+        ],
+        CALL_LOGS,
+    )
 
-    upsert_vectors(input, CALL_LOGS)
+    # print("call logs upserted successfully")
+    # print(input)
 
-    print("call logs upserted successfully")
-    print(input)
-
-    return get_context(query.question)
+    return answer
 
 
 ## VECTORS AND INDEX GET POST
@@ -134,11 +151,11 @@ def get_all_index():
 
 @app.get("/index/{index_name}")
 def get_index(index_name):
-    print(index_name)
+    # print(index_name)
     res = get_ids_from_query(index_name)["matches"]
     fields_to_include = ["id", "metadata"]
     parsed = [{field: d[field] for field in fields_to_include} for d in res]
-    print(res)
+    # print(res)
     return JSONResponse(content=parsed)
 
 
@@ -148,35 +165,44 @@ def update_vector(data: UpdateModel):
     index = get_specific_index(data.index_name)
     if not index:
         raise Exception("Index not found")
-    old_data = index.fetch(ids=[data.id])
-    if not old_data or old_data.length == 0:
-        raise Exception("Data not found")
-    old_data = old_data[0]
-    old_data.content = data.data
-    old_data.metadata.content = data.data
+    vector = [
+        {
+            "id": data.id,
+            "content": data.data,
+            "metadata": {"header": data.header, "content": data.data},
+        }
+    ]
+    embedded = get_embeddings(vector)
+    update_response = index.update(
+        id=data.id,
+        values=embedded[0][1],
+        set_metadata={"header": data.header, "content": data.data},
+        namespace="",
+    )
 
-    index.upsert(vectors=[old_data])
-
-    return
+    return update_response
 
 
 @app.post("/post-call-logs")
-def post_call_logs(call_logs): # ask ryan send id, content (string of all the chat messages), metadata
+def post_call_logs(
+    call_logs,
+):  # ask ryan send id, content (string of all the chat messages), metadata
+    # print(call_logs)
     input = []
 
     for log in call_logs:
-        input.append({
-            "id": f"{log.id}",
-            "content": log.content,
-            "metadata": {
-                "content": log.content
+        input.append(
+            {
+                "id": f"{log.id}",
+                "content": log.content,
+                "metadata": {"content": log.content},
             }
-        })
+        )
 
     upsert_vectors(input, CALL_LOGS)
 
-    print("call logs upserted successfully")
-    print(input)
+    # print("call logs upserted successfully")
+    # print(input)
 
 
 ## LOGS SUMMARY GET
@@ -186,36 +212,70 @@ def get_logs_summary():
     res = get_ids_from_query(CALL_LOGS)["matches"]
     if not res:
         raise Exception("Logs not found")
-    parsed = [d.content for d in res]
+    parsed = [d["metadata"]["content"] for d in res]
 
-    return
+    joined = ", ".join(parsed)
+    sum = generateSummaryTwo(joined, "")
+
+    return sum
+
+
+@app.get("/chat-summary")
+def get_chat_summary():
+    res = get_ids_from_query(CALL_LOGS)["matches"]  # these are all the calls
+
+    if not res:
+        raise Exception("Logs not found")
+    parsed = [d["metadata"]["content"] for d in res]
+
+    output = []
+
+    for i in range(
+        0,
+        len(res),
+    ):
+        output.append(
+            {
+                "id": res[i]["id"],
+                "summary": generateSummaryTwo(
+                    parsed[i].split("*")[::2], ""
+                ),  # summary of the messages of a call
+                "metadata": [
+                    {"content": x} for x in res[i]["metadata"]["content"].split("*")
+                ],
+            }
+        )
+
+    return output
 
 
 ## PRESET PROMPT GET POST
 # get preset prompt, return string
 @app.get("/preset-prompt")
 def get_preset_prompt():
-    return get_ids_from_query(PRESET_PROMPT)
+    res = get_ids_from_query(PRESET_PROMPT)["matches"]
+    fields_to_include = ["id", "metadata"]
+    parsed = [{field: d[field] for field in fields_to_include} for d in res]
+    print(res)
+    return JSONResponse(content=parsed)
 
 
 # update preset prompt
 @app.post("/preset-prompt")
-def post_preset_prompt(prompt):
+def post_preset_prompt(prompt: PresetPrompt):
     input = {
         "id": "1",
-        "content": prompt,
-        "metadata": {
-            "content": prompt
-        }
+        "content": prompt.prompt,
+        "metadata": {"content": prompt.prompt},
     }
-
-    upsert_vectors(input, PRESET_PROMPT)
+    print(input)
+    upsert_vectors([input], PRESET_PROMPT)
 
 
 ## IMPORTANT INFO POST
 # update impt info, receives array of {header, content}
 @app.post("/impt-info")
-def post_impt_info(data:UpsertImptInfo):
+def post_impt_info(data: UpsertImptInfo):
     # append content field
     new_data = []
     for item in list(data.data):
@@ -223,9 +283,9 @@ def post_impt_info(data:UpsertImptInfo):
             "id": item["id"],
             "metadata": {
                 "header": item["metadata"]["header"],
-                "content": item["metadata"]["content"]
+                "content": item["metadata"]["content"],
             },
-            "content": item["metadata"]["content"]
+            "content": item["metadata"]["content"],
         }
 
         new_data.append(updated_item)
@@ -237,7 +297,17 @@ def post_impt_info(data:UpsertImptInfo):
 # get pending actions, return number of entries in logs
 @app.get("/pending-actions")
 def get_pending_actions():
-    return "4"
+    res = get_ids_from_query(CALL_LOGS)["matches"]  # these are all the calls
+
+    print(res)
+    if not res:
+        raise Exception("Logs not found")
+    return str(len(res))
+
+
+# @app.get("/get-call-logs")
+# def get_call_logs():
+#     metadata =
 
 
 @app.get("/get-sample-call-logs")
