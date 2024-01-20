@@ -44,7 +44,7 @@ def get_context(prompt: str, model_name=GPT_4):
     top_3_content = "\n\n".join(
         [x["metadata"]["content"] for x in outputs[0]["matches"]]
     )
-    # print(top_3_content)
+    print(top_3_content)
     return top_3_content
 
     contexts = [

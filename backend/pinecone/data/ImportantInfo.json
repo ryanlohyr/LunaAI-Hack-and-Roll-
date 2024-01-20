@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "content": "1800-227-1188",
+    "metadata": {
+      "metadata": "For enquiries on retirement, housing, nomination enquiries within Singapore",
+      "content": "1800-227-1188"
+    }
+  },
+  {
+    "id": "2",
+    "content": "+65-6227-1188",
+    "metadata": {
+      "metadata": "For enquiries on retirement, housing, nomination enquiries from Overseas",
+      "content": "+65-6227-1188"
+    }
+  },
+  {
+    "id": "3",
+    "content": "1800-222-3399",
+    "metadata": {
+      "metadata": "For enquiries on healthcare, e.g. MediSave, MediShield Life or CareShield Life within Singapore",
+      "content": "1800-222-3399"
+    }
+  },
+  {
+    "id": "4",
+    "content": "+65-6222-3399",
+    "metadata": {
+      "metadata": "For enquiries on healthcare, e.g. MediSave, MediShield Life or CareShield Life from Overseas",
+      "content": "+65-6222-3399"
+    }
+  }
+]
