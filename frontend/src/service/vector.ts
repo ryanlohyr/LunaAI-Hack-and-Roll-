@@ -10,11 +10,12 @@ export const getIndexVectors = async (indexName: string) => {
     return res.data;
 }
 
-export const postVector = async (id: string, data: string, indexName: string) => {
+export const postVector = async (id: string, data: string, indexName: string, header:string) => {
     const res = await api.post(`/index/`, {
-        index: indexName,
+        index_name: indexName,
         id: id,
-        data: data
+        data: data,
+        header: header,
     });
     return res.data;
 }

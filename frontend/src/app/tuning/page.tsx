@@ -6,16 +6,8 @@ import React, { useEffect, useState } from 'react'
 
 type Props = {}
 
-const data = [
-  "overview",
-  "cpf-employee",
-  "cpf-contribution-selfemployed"
-]
-
-
 const Page = () => {
-  // TODO: replace indexdata with data when api integrated
-  const [indexData, setIndexData] = useState(null);
+  const [data, setIndexData] = useState(null);
 
   useEffect(() => {
     getAllIndex().then((res) => {
