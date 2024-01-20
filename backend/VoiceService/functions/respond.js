@@ -8,7 +8,6 @@ exports.handler = async function (context, event, callback) {
         apiKey: context.OPENAI_API_KEY,
     });
 
-
     // Set up the Twilio VoiceResponse object to generate the TwiML
     const twiml = new Twilio.twiml.VoiceResponse();
 
@@ -60,10 +59,12 @@ exports.handler = async function (context, event, callback) {
     twiml.redirect({
         method: "POST",
     },
-        `/transcribe`
+        `/processInput`
     );
 
-    // Since we're using the response object to handle cookies we can't just pass the TwiML straight back to the callback, we need to set the appropriate header and return the TwiML in the body of the response
+    // Since we're using the response object to handle cookies we can't 
+    // just pass the TwiML straight back to the callback, we need to set the 
+    // appropriate header and return the TwiML in the body of the response
     response.appendHeader("Content-Type", "application/xml");
     response.setBody(twiml.toString());
 
@@ -78,8 +79,35 @@ exports.handler = async function (context, event, callback) {
 
 
     // Function to create a chat completion using the OpenAI API
-    async function createChatCompletion(messages) {
+    async function createChatCompletion(conversation) {
         try {
+            const messages = conversation.map(
+                x.content
+            )
+
+            // combine the content of the conversation messages into a string
+            combined_messages = messages.join("\n")
+
+            let pineconeResponse
+
+            // call pinecone to find the most relevant documents 
+            $.ajax({
+                type: "POST",
+                url: "/query_pinecone.py",
+                data: { question: combined_messages },
+                success: (response) => pineconeResponse = response
+            });
+
+            const prompt = `
+                Answer the question based on the given context only. Append at the end of your answer the following message: "This is from Pinecone!"
+
+                ###
+                    ${pineconeResponse}
+                ###
+
+                ${messages[messages.length - 1]}
+            `
+
             // Define system messages to model the AI
             const systemMessages = [{
                 role: "system",
@@ -90,10 +118,15 @@ exports.handler = async function (context, event, callback) {
                 content: 'We are having a casual conversation over the telephone so please provide engaging but concise responses.'
             },
             ];
-            messages = systemMessages.concat(messages);
+
+            // update the last message to be the formatted prompt
+            conversation[conversation.length-1].content = prompt
+
+            // caveat that we need to account for token limit when feeding into the gpt model (edge case of too long chat history)
+            inputMessages = systemMessages.concat(conversation);
 
             const chatCompletion = await openai.chat.completions.create({
-                messages: messages,
+                messages: inputMessages,
                 model: 'gpt-3.5-turbo',
                 temperature: 0.8, // Controls the randomness of the generated responses. Higher values (e.g., 1.0) make the output more random and creative, while lower values (e.g., 0.2) make it more focused and deterministic. You can adjust the temperature based on your desired level of creativity and exploration.
                 max_tokens: 100, // You can adjust this number to control the length of the generated responses. Keep in mind that setting max_tokens too low might result in responses that are cut off and don't make sense.

@@ -1,21 +1,20 @@
 from configs.models import (
-    FINE_TUNE_MODEL,
-    GPT_3_dot_5,
-    complete_3_dot_5,
+    GPT_4,
+    complete_gpt_4,
     complete_fine_tune,
 )
 from utils.calculations import TokenBuffer
-from vector_database.index import get_index
+from vector_database.index import get_default_index
 
 
-index = get_index()
+index = get_default_index()
 
 
 def get_query(prompt, model_name):
     token_buffer = TokenBuffer(model_name=model_name)
     token_buffer.update(text=prompt, debug=True)
 
-    complete = complete_3_dot_5 if model_name == GPT_3_dot_5 else complete_fine_tune
+    complete = complete_gpt_4 
     prelim_query = complete(token_buffer.get_buffer())
     print("prelim query:\n", prelim_query if prelim_query else "nothing returned")
 
@@ -48,7 +47,7 @@ def get_natural_lang(prompt, model_name):
     token_buffer = TokenBuffer(model_name=model_name)
     token_buffer.update(text=prompt, debug=True)
 
-    complete = complete_3_dot_5 if model_name == GPT_3_dot_5 else complete_fine_tune
+    complete = complete_gpt_4 if model_name == GPT_4 else complete_fine_tune
     answer = complete(token_buffer.get_buffer())
     print("answer:\n", answer if answer else "nothing returned")
 
@@ -56,7 +55,7 @@ def get_natural_lang(prompt, model_name):
 
 
 def get_model_output(
-    prompt, is_sql, model_name=FINE_TUNE_MODEL
+    prompt, is_sql, model_name=GPT_4
 ):  # use fine tune model as default
     return (
         get_query(prompt, model_name)

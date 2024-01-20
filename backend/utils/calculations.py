@@ -1,8 +1,6 @@
 from configs.models import (
-    FINE_TUNE_CONTEXT_LIMIT,
-    FINE_TUNE_MODEL,
-    GPT_3_dot_5,
-    GPT_3_dot_5_CONTEXT_LIMIT,
+    GPT_4,
+    GPT_4_CONTEXT_LIMIT,
 )
 
 
@@ -76,7 +74,7 @@ class TokenBuffer:
             FINE_TUNE_CONTEXT_LIMIT
             if model_name == FINE_TUNE_MODEL
             else (
-                GPT_3_dot_5_CONTEXT_LIMIT if model_name == GPT_3_dot_5 else max_tokens
+                GPT_4_CONTEXT_LIMIT if model_name == GPT_4 else max_tokens
             )
         )
         self.buffer = ""
