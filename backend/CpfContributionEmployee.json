@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "content": "As an employee, your employer is required to make CPF contributions for you. This helps you to save for retirement, housing, and healthcare needs. Find out more about your CPF rights and verify your CPF contributions with the CPF Contribution Alert.",
+    "metadata": {
+      "header": "<h3>Saving as an employee with CPF contributions</h3>",
+      "content": "As an employee, your employer is required to make CPF contributions for you. This helps you to save for retirement, housing, and healthcare needs. Find out more about your CPF rights and verify your CPF contributions with the CPF Contribution Alert."
+    }
+  },
+  {
+    "id": 2,
+    "content": "Under the CPF Act, an employee is defined as: A person who is employed in Singapore under a Contract of Service (COS); or A Singapore Citizen who is employed under a contract of service or other agreement entered into in Singapore as a master, seaman, or apprentice in any vessel. If you’re a Singapore Citizen or Permanent Resident employee earning total wages of more than $50 per month, your employer must contribute CPF for you. An employee can be employed on full-time, part-time, temporary, contract, or casual basis.",
+    "metadata": {
+      "header": "<h3>What you should know as an employee</h3><h4>Employees</h4>",
+      "content": "Under the CPF Act, an employee is defined as: A person who is employed in Singapore under a Contract of Service (COS); or A Singapore Citizen who is employed under a contract of service or other agreement entered into in Singapore as a master, seaman, or apprentice in any vessel. If you’re a Singapore Citizen or Permanent Resident employee earning total wages of more than $50 per month, your employer must contribute CPF for you. An employee can be employed on full-time, part-time, temporary, contract, or casual basis."
+    }
+  },
+  {
+    "id": 3,
+    "content": "Some employees are exempted from CPF contributions. They include students who fulfil exemption criteria, foreigners, domestic employees, employees of the United Nations, and seamen who fulfil exemption criteria.",
+    "metadata": {
+      "header": "<h3>What you should know as an employee</h3><h4>Employees exempted from CPF contributions</h4>",
+      "content": "Some employees are exempted from CPF contributions. They include students who fulfil exemption criteria, foreigners, domestic employees, employees of the United Nations, and seamen who fulfil exemption criteria."
+    }
+  },
+  {
+    "id": 4,
+    "content": "CPF contributions are required on wages payable to any Singapore Citizen or Permanent Resident employee working in Singapore, even if the contract is signed overseas.",
+    "metadata": {
+      "header": "<h3>What you should know as an employee</h3><h4>Employees working in Singapore for an overseas employer</h4>",
+      "content": "CPF contributions are required on wages payable to any Singapore Citizen or Permanent Resident employee working in Singapore, even if the contract is signed overseas."
+    }
+  },
+  {
+    "id": 5,
+    "content": "You should research your prospective employer to ensure that it has legitimate business presence in Singapore and whether it is registered with Accounting and Corporate Regulatory Authority (ACRA). You should also communicate your CPF rights clearly to the overseas employer before the start of your employment to avoid subsequent disputes. If your CPF contributions are not paid on time or discrepancies are found, please approach your employer for clarification immediately while documentary evidence is fresh. If your employer does not provide you with a satisfactory explanation, you can lodge a report with CPF Board. Do note that enforcement actions would not be effective against an overseas employer with no presence in Singapore and is not registered with ACRA. CPF Board may not be able to assist you in such claims. You may wish to exercise caution when seeking employment with such employer.",
+    "metadata": {
+      "header": "<h3>What you should know as an employee</h3><h4>Employees employed directly by an overseas employee</h4>",
+      "content": "You should research your prospective employer to ensure that it has legitimate business presence in Singapore and whether it is registered with Accounting and Corporate Regulatory Authority (ACRA). You should also communicate your CPF rights clearly to the overseas employer before the start of your employment to avoid subsequent disputes. If your CPF contributions are not paid on time or discrepancies are found, please approach your employer for clarification immediately while documentary evidence is fresh. If your employer does not provide you with a satisfactory explanation, you can lodge a report with CPF Board. Do note that enforcement actions would not be effective against an overseas employer with no presence in Singapore and is not registered with ACRA. CPF Board may not be able to assist you in such claims. You may wish to exercise caution when seeking employment with such employer."
+    }
+  },
+  {
+    "id": 6,
+    "content": "You may consider working for an overseas entity through an EOR. An EOR serves as the employer, taking on employment-related roles such as paying salaries for its employees, withholding taxes, paying employment-related benefits, while its employees perform work for its client, e.g. an overseas company. When you’re employed through an EOR to work for an overseas entity, the EOR is your employer and will be responsible for paying your CPF contributions. Do read through your employment contract with the EOR to ensure your rights are protected. While it may be easier to take enforcement actions against an EOR located in Singapore compared to an overseas entity, you should still exercise caution when seeking employment with an EOR. The recovery of any unpaid CPF contributions depends on the EOR’s financial ability to pay up the arrears. Do check with the EOR early if any discrepancies are found in your CPF contributions, while documentary evidence is fresh and before your CPF arrears accumulate.",
+    "metadata": {
+      "header": "<h3>What you should know as an employee</h3><h4>Employed through an Employer of Record (EOR) to work for an overseas entity</h4>",
+      "content": "You may consider working for an overseas entity through an EOR. An EOR serves as the employer, taking on employment-related roles such as paying salaries for its employees, withholding taxes, paying employment-related benefits, while its employees perform work for its client, e.g. an overseas company. When you’re employed through an EOR to work for an overseas entity, the EOR is your employer and will be responsible for paying your CPF contributions. Do read through your employment contract with the EOR to ensure your rights are protected. While it may be easier to take enforcement actions against an EOR located in Singapore compared to an overseas entity, you should still exercise caution when seeking employment with an EOR. The recovery of any unpaid CPF contributions depends on the EOR’s financial ability to pay up the arrears. Do check with the EOR early if any discrepancies are found in your CPF contributions, while documentary evidence is fresh and before your CPF arrears accumulate."
+    }
+  }
+]
