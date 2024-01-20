@@ -15,8 +15,12 @@ class Upsert(BaseModel):
 class Query(BaseModel):
     question: str
 
-
 class UpdateModel(BaseModel):
     index_name: str
     id: str
     data: str
+
+class UpsertImptInfo(BaseModel):
+    data: List = [
+        {"id": str, "metadata": {"header": str, "content": str }}
+    ]
