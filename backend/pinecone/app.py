@@ -107,17 +107,20 @@ def upsert_sample_data():
 
 
 @app.post("/query-data")
-def query(query: Query, id: str, conversation: [{"user": str, "content": str}]):
+def query(
+    query: Query,
+):
     input = []
+    print(query)
 
-    for log in conversation:
-        input.append({
-            "id": id,
-            "content": log.content,
-            "metadata": {
-                "content": log.content
+    for log in query.conversation:
+        input.append(
+            {
+                "id": id,
+                "content": log["content"],
+                "metadata": {"content": log["content"]},
             }
-        })
+        )
 
     upsert_vectors(input, CALL_LOGS)
 
@@ -149,20 +152,19 @@ def update_vector(data: UpdateModel):
     index = get_specific_index(data.index_name)
     if not index:
         raise Exception("Index not found")
-    vector = [{
-        "id": data.id,
-        "content": data.data,
-        "metadata": {
-            "header": data.header,
-            "content": data.data
+    vector = [
+        {
+            "id": data.id,
+            "content": data.data,
+            "metadata": {"header": data.header, "content": data.data},
         }
-    }]
+    ]
     embedded = get_embeddings(vector)
     update_response = index.update(
         id=data.id,
         values=embedded[0][1],
-        set_metadata={'header': data.header, 'content': data.data},
-        namespace=""
+        set_metadata={"header": data.header, "content": data.data},
+        namespace="",
     )
 
     return update_response

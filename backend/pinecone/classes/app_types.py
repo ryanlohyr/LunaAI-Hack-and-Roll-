@@ -14,6 +14,9 @@ class Upsert(BaseModel):
 
 class Query(BaseModel):
     question: str
+    id: str
+    conversation: List
+
 
 class UpdateModel(BaseModel):
     index_name: str
@@ -21,7 +24,6 @@ class UpdateModel(BaseModel):
     data: str
     header: str
 
+
 class UpsertImptInfo(BaseModel):
-    data: List = [
-        {"id": str, "metadata": {"header": str, "content": str }}
-    ]
+    data: List = [{"id": str, "metadata": {"header": str, "content": str}}]
