@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from configs import EMBEDDING_MODEL, EMBEDDING_TOKEN_LIMIT, GPT_3_dot_5, topic_list
+from configs import EMBEDDING_MODEL, EMBEDDING_TOKEN_LIMIT, GPT_3_dot_5
 from src import get_context, get_model_output
-from src.classes.exception_types import PromptTooLong
-from src.classes.param_types import Input
+from classes.exception_types import PromptTooLong
+# from src.classes.param_types import Input
 from utils import count_tokens
 from vector_database import upsert_vectors
 
@@ -21,11 +21,6 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the FastAPI Microservice!"}
-
-
-@app.post("/slack/events")
-async def endpoint(req: Request):
-    return await bot_handler.handle(req)
 
 
 @app.exception_handler(PromptTooLong)
