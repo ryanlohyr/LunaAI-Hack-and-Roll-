@@ -24,11 +24,11 @@ disk: 2048
 
 dependencies: 
   python3: # Specify one Python 3 package per line.
-    pipenv: '*'
+    pip3: '*'
 
 hooks:
     build: |
-      pipenv install -r backend/requirements.txt
+      pip3 install -r backend/requirements.txt
 
 web:
   commands: 
