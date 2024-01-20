@@ -45,7 +45,6 @@ def create_index():
     # print(index_list)
     for i in INDEXES_TO_CREATE:
         if i not in index_list:
-            # print(i)
             pc.create_index(
                 name=i,
                 dimension=1536,  # standard for OpenAI Ada embedding
@@ -84,6 +83,47 @@ def upsert_sample_data():
 @app.post("/query-data")
 def query(query: Query):
     return get_context(query.question)
+
+@app.get("/get-sample-call-logs")
+def get_sample_call_logs():
+    return [
+        {
+            "metadata": [
+                {
+                    "id": "1",
+                    "role": "system",
+                    "content": "xyz_1"
+                }
+            ]
+        },
+        {
+            "metadata": [
+                {
+                    "id": "2",
+                    "role": "user",
+                    "content": "xyz_2"
+                }
+            ]
+        },
+        {
+            "metadata": [
+                {
+                    "id": "3",
+                    "role": "system",
+                    "content": "xyz_3"
+                }
+            ]
+        },
+        {
+            "metadata": [
+                {
+                    "id": "4",
+                    "role": "user",
+                    "content": "xyz_4"
+                }
+            ]
+        }
+    ]
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
