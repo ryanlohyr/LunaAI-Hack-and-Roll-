@@ -148,6 +148,12 @@ def post_call_logs(call_logs): # ask ryan send id, content (string of all the ch
     upsert_vectors(call_logs, CALL_LOGS)
 
 
+# CALL LOGS GET
+@app.get("/call-logs")
+def get_call_logs():
+    return
+
+
 ## LOGS SUMMARY GET
 # get logs summary,return string
 @app.get("/logs-summary")
@@ -188,12 +194,6 @@ def post_impt_info():
 @app.get("/pending-actions")
 def get_pending_actions():
     return "4"
-
-
-# CALL LOGS GET
-@app.get("/call-logs")
-def get_call_logs():
-    return
 
 
 @app.get("/get-sample-call-logs")
