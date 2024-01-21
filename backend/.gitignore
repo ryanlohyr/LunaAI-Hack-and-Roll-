@@ -103,6 +103,7 @@ celerybeat.pid
 
 # Environments
 .venv
+backend/pinecone/.env
 env/
 venv/
 ENV/
