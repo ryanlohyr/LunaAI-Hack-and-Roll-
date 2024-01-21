@@ -14,7 +14,7 @@
   - OpenAI
 
 # Acknowledgements
-[Ryan Loh](https://github.com/ryanlohyr)
-[Benjamin Toh](https://github.com/bentohset)
-[Ching Ming Yuan](https://github.com/mingyuanc)
-[Yong Khee Hou](https://github.com/yongkheehou)
+- [Ryan Loh](https://github.com/ryanlohyr)
+- [Benjamin Toh](https://github.com/bentohset)
+- [Ching Ming Yuan](https://github.com/mingyuanc)
+- [Yong Khee Hou](https://github.com/yongkheehou)
