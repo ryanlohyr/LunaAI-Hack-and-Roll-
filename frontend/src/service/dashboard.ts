@@ -7,13 +7,13 @@ export const getImptInfo = async () => {
 }
 
 export const getPresetPrompt = async () => {
-    const res = await api.get("/preset")
+    const res = await api.get("/preset-prompt")
     return res.data;
 }
-
+//TODO: 
 export const getLogsSummary = async () => {
-    const res = await api.get("/preset")
-    return res.data;
+    const res = await api.get("/logs-summary")
+    return res.data
 }
 
 export const getPendingActions = async () => {
@@ -22,7 +22,7 @@ export const getPendingActions = async () => {
 }
 
 export const postPresetPrompt = async (prompt: string) => {
-    const res = await api.post("/preset", {prompt: prompt})
+    const res = await api.post("/preset-prompt", {prompt: prompt})
     return res.data
 }
 
