@@ -109,10 +109,16 @@ exports.handler = async function (context, event, callback) {
             // update the last message to be the formatted prompt
             conversation.push({ role: 'user', content: voiceInput });
 
+            let conversationCopy = [...conversation]; // Using spread operator
+
+            conversation.push({ role: 'user', content: voiceInput });
+
+            conversationCopy.push({ role: 'user', content: prompt });
+
             // Define system messages to model the AI
             const systemMessages = [{
                 role: "system",
-                content: `You are a customer service chatbot that will respond in ${language} for Singapore's Central Provisional Fund (CPF), Answer the question based on the context`
+                content: `You are a customer service chatbot that will respond in ${language} for only and only the  Singapore's Central Provisional Fund (CPF), Answer the question based on the context`
             },
             {
                 role: "user",
@@ -121,7 +127,7 @@ exports.handler = async function (context, event, callback) {
             ];
 
             // caveat that we need to account for token limit when feeding into the gpt model (edge case of too long chat history)
-            inputMessages = systemMessages.concat(conversation);
+            inputMessages = systemMessages.concat(conversationCopy);
 
             const chatCompletion = await openai.chat.completions.create({
                 messages: inputMessages,

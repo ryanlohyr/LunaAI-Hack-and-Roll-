@@ -283,7 +283,6 @@ def post_preset_prompt(prompt: PresetPrompt):
 # update impt info, receives array of {header, content}
 @app.post("/impt-info")
 def post_impt_info(data: UpsertImptInfo):
-def post_impt_info(data: UpsertImptInfo):
     # append content field
     new_data = []
     for item in list(data.data):
